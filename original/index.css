@@ -1,0 +1,57 @@
+.mainframe
+{
+    background-image: url("img/fon_main.png");
+    background-repeat: repeat;
+    text-align: center;
+}
+
+.tableframe
+{
+    font-family: "Courier New";
+    font-size: 18px;
+    text-align: left;
+    padding: 10px;
+    border-spacing: 10px;
+    margin: auto;
+    background: RGBA(0,0,0,0.1);
+
+}
+
+.tableframe_message
+{
+    font-family: "Courier New";
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.tableframe_input
+{
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 10px;
+    width: 300px;
+}
+
+.tableframe_button
+{
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 10px;
+    width: 220px;
+    background-color: #c4c4c4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.tableframe_button:hover
+{
+    background-color: #b4b4b4;
+}
