@@ -16,7 +16,8 @@
     "url": "https://github.com/Totentu/middle.messenger.praktikum.yandex/issues"
   },
   "homepage": "https://github.com/Totentu/middle.messenger.praktikum.yandex#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "express": "^4.17.1"
   }
 }
