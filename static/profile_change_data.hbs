@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body class="mainframe">
+
+<table class="tableframe">
+    <tr>
+        <td class="tableframe_message" colspan="2">{{title}}</td>
+    </tr>
+
+    {{#each fields}}
+    <tr>
+        <td class="tableframe_profile_td_quation">{{field_title}}:</td>
+        <td><input id='{{field_name}}' class="tableframe_input" value="{{field_value}}"></td>
+    </tr>
+    <tr class="tableframe_profile_tr">
+        <td class="tableframe_delimiter" colspan="2"></td>
+    </tr>
+    {{/each}}
+
+    <tr><td></td></tr>
+    <tr>
+        <td colspan="2" align="center">
+            <a href="profile"><button class="tableframe_button">Сохранить</button></a>
+            <a href="profile"><button class="tableframe_button">Отмена</button></a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

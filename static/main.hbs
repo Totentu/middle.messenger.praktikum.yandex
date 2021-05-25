@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body class="mainframe">
+
+<div class="mainframe_toppanel">
+    <table class="clear_table_frame">
+        <tr>
+            <td><a href="profile"><div class="mainframe_button_picture" style="background-image: url(/static/img/profile.png)"></div></a></td>
+            <td><input id='inp_search' class="toppanel_input" value="" placeholder="поиск..."></td>
+            <td><div class="mainframe_button_picture" style="background-image: url(/static/img/search.png)"></div></td>
+        </tr>
+    </table>
+</div>
+
+<div class="mainframe_leftpanel">
+    {{#each chats}}
+        <table class="mainframe_chatlist">
+            <tr>
+                <td rowspan="2"><div class="mainframe_chatlist_img" style="background-image: url(/static/img/{{chat_photo}})"></div></td>
+                <td class="mainframe_chatlist_title">{{chat_title}}</td>
+                <td class="mainframe_chatlist_time">{{chat_time}}</td>
+            </tr>
+            <tr>
+                <td class="mainframe_chatlist_text">{{chat_text}}</td>
+                <td class="mainframe_chatlist_new_box">
+                    {{#if chat_new}}
+                    <div class="mainframe_chatlist_new">{{chat_new}}</div>
+                    {{/if}}
+                </td>
+            </tr>
+        </table>
+    {{/each}}
+</div>
+
+</body>
+</html>
