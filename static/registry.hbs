@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body class="mainframe">
+
+<table class="tableframe">
+    <tr>
+        <td class="tableframe_message" colspan="2">{{title}}</td>
+    </tr>
+
+    {{#each fields}}
+    <tr>
+        <td>{{field_title}}:</td>
+        <td><input id='{{field_name}}' class="tableframe_input" value="{{field_value}}"></td>
+    </tr>
+    {{/each}}
+
+    <tr><td></td></tr>
+    <tr>
+        <td colspan="2" align="center">
+            <a href="main"><button class="tableframe_button">Зарегистрироваться</button></a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

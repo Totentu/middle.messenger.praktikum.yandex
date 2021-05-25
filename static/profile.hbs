@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<link rel="stylesheet" type="text/css" href="/static/index.css">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body class="mainframe">
+
+<table class="tableframe">
+    <tr>
+        <td class="tableframe_message" colspan="2">{{title}}</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="tableframe_large_img" style="background-image: url(img/{{user_photo}})"></div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <a href="main"><button class="tableframe_button">Изменить аватар</button></a>
+        </td>
+    </tr>
+
+    {{#each fields}}
+    <tr>
+        <td class="tableframe_profile_td_quation">{{field_title}}:</td>
+        <td class="tableframe_profile_td_answer">{{field_value}}</td>
+    </tr>
+    <tr class="tableframe_profile_tr">
+        <td class="tableframe_delimiter" colspan="2"></td>
+    </tr>
+    {{/each}}
+
+    <tr><td></td></tr>
+    <tr>
+        <td colspan="2" align="center">
+            <a href="profile_change_data"><button class="tableframe_button">Изменить данные</button></a>
+            <a href="profile_change_pass"><button class="tableframe_button">Изменить пароль</button></a>
+        </td>
+    </tr>
+</table>
+
+<a href="main">
+    <div class="mainframe_href">Вернуться в список бесед</div>
+</a>
+<br>
+<a href="login">
+    <div class="mainframe_href">Выйти из профиля</div>
+</a>
+</body>
+</html>

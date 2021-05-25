@@ -1,0 +1,207 @@
+.mainframe
+{
+    background-image: url("img/fon_main.png");
+    background-repeat: repeat;
+    text-align: center;
+}
+
+.mainframe_href
+{
+    font-family: "Courier New";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+    display: inline-block;
+    color: #5463B4;
+    cursor: pointer;
+}
+
+
+.clear_table_frame
+{
+    border: 0;
+    padding: 0;
+    vertical-align: center;
+    text-align: center;
+}
+.mainframe_toppanel
+{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 310px;
+    height: 50px;
+    overflow: hidden;
+    background: RGBA(255,255,255,0.4);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+.mainframe_leftpanel
+{
+    position: fixed;
+    left: 0px;
+    top: 50px;
+    width: 310px;
+    height: 100%;
+    overflow: auto;
+    background: RGBA(255,255,255,0.4);
+    font-family: "Courier New";
+    font-size: 18px;
+}
+
+.mainframe_chatlist
+{
+    font-family: inherit;
+    font-size: inherit;
+    width: 310px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.mainframe_chatlist:hover
+{
+    background: RGBA(0,0,0,0.1);
+}
+.mainframe_chatlist_title
+{
+    text-align: left;
+    font-weight: bold;
+}
+
+.mainframe_chatlist_text
+{
+    text-align: left;
+    font-size: 12px;
+}
+
+.mainframe_chatlist_time
+{
+    text-align: right;
+    font-size: 12px;
+}
+.mainframe_chatlist_img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: RGBA(0,0,0,0.1);
+    background-size: cover;
+}
+
+.tableframe_large_img
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    background: RGBA(0,0,0,0.1);
+    background-size: cover;
+    display: inline-block;
+}
+
+.mainframe_chatlist_new_box
+{
+    display: block;
+    text-align: right;
+}
+.mainframe_chatlist_new
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #99BCD6;
+    font-weight: bold;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding-top: 4px;
+    text-align: center;
+    display: inline-block;
+}
+
+
+.tableframe
+{
+    font-family: "Courier New";
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+    border-spacing: 10px;
+    margin: auto;
+    background: RGBA(255,255,255,0.2);
+    width: 520px;
+}
+
+.tableframe_profile_td_quation
+{
+    text-align: left;
+}
+
+.tableframe_profile_td_answer
+{
+    text-align: right;
+}
+.tableframe_delimiter
+{
+    border-bottom: 1px solid #000000;
+}
+
+.tableframe_message
+{
+    font-family: "Courier New";
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.toppanel_input
+{
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 10px;
+    width: 200px;
+    display: inline-block;
+}
+.tableframe_input
+{
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 10px;
+    width: 300px;
+}
+
+.mainframe_button_picture
+{
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.tableframe_button
+{
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 10px;
+    width: 220px;
+    background-color: #c4c4c4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.tableframe_button:hover
+{
+    background-color: #b4b4b4;
+}
