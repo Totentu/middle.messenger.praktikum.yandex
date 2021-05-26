@@ -75,17 +75,6 @@
   text-align: center;
 }
 
-.mainframe_href {
-  font-family: Courier New;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 30px;
-  display: inline-block;
-  color: #5463B4;
-  cursor: pointer;
-}
-
 .clear_table_frame {
   border: 0;
   padding: 0;
@@ -136,32 +125,43 @@
   border-bottom: 1px solid #000000;
 }
 
-.tableframe_message {
+.tableframe_message, .mainframe_href {
   font-family: Courier New;
-  font-size: 32px;
+  font-size: 27px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 30px;
 }
 
-.toppanel_input {
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  border-radius: 10px;
-  height: 25px;
-  padding-left: 10px;
-  width: 200px;
+.mainframe_href {
+  color: #5463B4;
   display: inline-block;
+  cursor: pointer;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe_input, .toppanel_input {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.tableframe_button {
+  text-align: center;
+}
+
+.toppanel_input {
+  width: 200px;
 }
 
 .tableframe_input {
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  border-radius: 10px;
-  height: 25px;
-  padding-left: 10px;
   width: 300px;
 }
 
@@ -173,12 +173,6 @@
 }
 
 .tableframe_button {
-  border: 0;
-  font-family: inherit;
-  font-size: inherit;
-  border-radius: 10px;
-  height: 25px;
-  padding-left: 10px;
   width: 220px;
   background-color: #c4c4c4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
