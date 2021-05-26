@@ -1,6 +1,77 @@
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe, .mainframe_leftpanel, .mainframe_toppanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
 .mainframe {
-  background-image: url("img/fon_main.png");
+  background-image: url("/static/img/fon_main.png");
   background-repeat: repeat;
+  text-align: center;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.mainframe_toppanel {
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.mainframe_leftpanel {
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+}
+
+.mainframe_chatlist_new {
+  background: #99BCD6;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 4px;
   text-align: center;
 }
 
@@ -22,38 +93,13 @@
   text-align: center;
 }
 
-.mainframe_toppanel {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 310px;
-  height: 50px;
-  overflow: hidden;
-  background: RGBA(255, 255, 255, 0.4);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.mainframe_leftpanel {
-  position: fixed;
-  left: 0;
-  top: 50px;
-  width: 310px;
-  height: 100%;
-  overflow: auto;
-  background: RGBA(255, 255, 255, 0.4);
-  font-family: Courier New;
-  font-size: 18px;
-}
-
 .mainframe_chatlist {
   font-family: inherit;
   font-size: inherit;
-  width: 310px;
+  width: 290px;
   padding: 10px;
   cursor: pointer;
 }
-
 .mainframe_chatlist:hover {
   background: RGBA(0, 0, 0, 0.1);
 }
@@ -73,50 +119,9 @@
   font-size: 12px;
 }
 
-.mainframe_chatlist_img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background: RGBA(0, 0, 0, 0.1);
-  background-size: cover;
-}
-
-.tableframe_large_img {
-  width: 150px;
-  height: 150px;
-  border-radius: 150px;
-  background: RGBA(0, 0, 0, 0.1);
-  background-size: cover;
-  display: inline-block;
-}
-
 .mainframe_chatlist_new_box {
   display: block;
   text-align: right;
-}
-
-.mainframe_chatlist_new {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background: #99BCD6;
-  font-weight: bold;
-  font-size: 12px;
-  box-sizing: border-box;
-  padding-top: 4px;
-  text-align: center;
-  display: inline-block;
-}
-
-.tableframe {
-  font-family: Courier New;
-  font-size: 18px;
-  text-align: center;
-  padding: 20px;
-  border-spacing: 10px;
-  margin: auto;
-  background: RGBA(255, 255, 255, 0.2);
-  width: 520px;
 }
 
 .tableframe_profile_td_quation {
@@ -179,7 +184,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
-
 .tableframe_button:hover {
   background-color: #b4b4b4;
 }

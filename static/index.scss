@@ -1,15 +1,94 @@
-$font-stack:    Courier New;
+$whole_font_family:    Courier New;
+$whole_font_size:      18px;
+$left_panel_width:     310px;
+$circle_size: (small: 20px, medium: 50px, large: 150px);
+
+@each $circle, $size in $circle_size {
+  %circle_form_#{$circle}
+  {
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    background: RGBA(255,255,255,0.1);
+    background-size: cover;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+}
+
+%frame_view
+{
+  background:   RGBA(255,255,255,0.2);
+  box-sizing:   border-box;
+  font-family:  $whole_font_family;
+  font-size:    $whole_font_size;
+  padding:      10px;
+}
+
+%panel_view
+{
+  @extend %frame_view;
+  position: fixed;
+  left: 0;
+  width: $left_panel_width;
+}
 
 .mainframe
 {
-  background-image: url("img/fon_main.png");
+  background-image: url("/static/img/fon_main.png");
   background-repeat: repeat;
+  text-align: center;
+}
+
+.tableframe
+{
+  @extend %frame_view;
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.mainframe_toppanel
+{
+  @extend %panel_view;
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.mainframe_leftpanel
+{
+  @extend %panel_view;
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+
+}
+
+.mainframe_chatlist_img
+{
+  @extend %circle_form_medium;
+}
+
+.tableframe_large_img
+{
+  @extend %circle_form_large;
+}
+
+.mainframe_chatlist_new
+{
+  @extend %circle_form_small;
+  background: #99BCD6;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 4px;
   text-align: center;
 }
 
 .mainframe_href
 {
-  font-family: $font-stack;
+  font-family: $whole_font_family;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -19,7 +98,6 @@ $font-stack:    Courier New;
   cursor: pointer;
 }
 
-
 .clear_table_frame
 {
   border: 0;
@@ -27,47 +105,17 @@ $font-stack:    Courier New;
   vertical-align: center;
   text-align: center;
 }
-.mainframe_toppanel
-{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 310px;
-  height: 50px;
-  overflow: hidden;
-  background: RGBA(255,255,255,0.4);
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-
-
-.mainframe_leftpanel
-{
-  position: fixed;
-  left: 0;
-  top: 50px;
-  width: 310px;
-  height: 100%;
-  overflow: auto;
-  background: RGBA(255,255,255,0.4);
-  font-family: $font-stack;
-  font-size: 18px;
-}
 
 .mainframe_chatlist
 {
-  font-family: inherit;
-  font-size: inherit;
-  width: 310px;
-  padding: 10px;
-  cursor: pointer;
+  font-family:  inherit;
+  font-size:    inherit;
+  width:        ($left_panel_width - 20);
+  padding:      10px;
+  cursor:       pointer;
+  &:hover  {    background: RGBA(0,0,0,0.1);  }
 }
 
-.mainframe_chatlist:hover
-{
-  background: RGBA(0,0,0,0.1);
-}
 .mainframe_chatlist_title
 {
   text-align: left;
@@ -85,55 +133,11 @@ $font-stack:    Courier New;
   text-align: right;
   font-size: 12px;
 }
-.mainframe_chatlist_img
-{
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background: RGBA(0,0,0,0.1);
-  background-size: cover;
-}
-
-.tableframe_large_img
-{
-  width: 150px;
-  height: 150px;
-  border-radius: 150px;
-  background: RGBA(0,0,0,0.1);
-  background-size: cover;
-  display: inline-block;
-}
 
 .mainframe_chatlist_new_box
 {
   display: block;
   text-align: right;
-}
-.mainframe_chatlist_new
-{
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background: #99BCD6;
-  font-weight: bold;
-  font-size: 12px;
-  box-sizing: border-box;
-  padding-top: 4px;
-  text-align: center;
-  display: inline-block;
-}
-
-
-.tableframe
-{
-  font-family: $font-stack;
-  font-size: 18px;
-  text-align: center;
-  padding: 20px;
-  border-spacing: 10px;
-  margin: auto;
-  background: RGBA(255,255,255,0.2);
-  width: 520px;
 }
 
 .tableframe_profile_td_quation
@@ -152,7 +156,7 @@ $font-stack:    Courier New;
 
 .tableframe_message
 {
-  font-family: $font-stack;
+  font-family: $whole_font_family;
   font-size: 32px;
   font-weight: bold;
   text-align: center;
@@ -170,6 +174,7 @@ $font-stack:    Courier New;
   width: 200px;
   display: inline-block;
 }
+
 .tableframe_input
 {
   border: 0;
@@ -201,9 +206,5 @@ $font-stack:    Courier New;
   background-color: #c4c4c4;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   cursor: pointer;
-}
-
-.tableframe_button:hover
-{
-  background-color: #b4b4b4;
+  &:hover  {    background-color: #b4b4b4;  }
 }
