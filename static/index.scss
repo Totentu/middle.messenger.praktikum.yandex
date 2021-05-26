@@ -1,5 +1,8 @@
-$whole_font_family:    Courier New;
-$whole_font_size:      18px;
+@import "global";
+@import "../src/components/button/button";
+@import "../src/components/input/input";
+@import "../src/pages/login/login";
+
 $left_panel_width:     310px;
 $circle_size: (small: 20px, medium: 50px, large: 150px);
 
@@ -14,15 +17,6 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
     display: inline-block;
     box-sizing: border-box;
   }
-}
-
-%frame_view
-{
-  background:   RGBA(255,255,255,0.2);
-  box-sizing:   border-box;
-  font-family:  $whole_font_family;
-  font-size:    $whole_font_size;
-  padding:      10px;
 }
 
 %panel_view
@@ -40,14 +34,6 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
   text-align: center;
 }
 
-.tableframe
-{
-  @extend %frame_view;
-  text-align: center;
-  margin: auto;
-  width: 520px;
-  border-spacing: 10px;
-}
 
 .mainframe_toppanel
 {
@@ -143,14 +129,6 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
   border-bottom: 1px solid #000000;
 }
 
-%big_text_view
-{
-  font-family: $whole_font_family;
-  font-size: $whole_font_size*1.5;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 30px;
-}
 
 .mainframe_href
 {
@@ -160,10 +138,6 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
   cursor: pointer;
 }
 
-.tableframe_message
-{
-  @extend %big_text_view;
-}
 
 %text_view
 {
@@ -175,45 +149,10 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
   border-radius: 10px;
 }
 
-%input_view
-{
-  @extend %text_view;
-  padding-left: 10px;
-  text-align: left;
-}
-
-%button_view
-{
-  @extend %text_view;
-  text-align: center;
-}
-
-.toppanel_input
-{
-  @extend %input_view;
-  width: 200px;
-}
-
-.tableframe_input
-{
-  @extend %input_view;
-  width: 300px;
-}
-
 .mainframe_button_picture
 {
   width: 30px;
   height: 30px;
   background-size: cover;
-  cursor: pointer;
-}
-
-.tableframe_button
-{
-  @extend %button_view;
-  width: 220px;
-  background-color: #c4c4c4;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  &:hover  {    background-color: #b4b4b4;  }
   cursor: pointer;
 }

@@ -1,0 +1,46 @@
+$whole_font_family:    Courier New;
+$whole_font_size:      18px;
+
+%text_view
+{
+  border: 0;
+  font-family: $whole_font_family;
+  font-size: $whole_font_size;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+%frame_view
+{
+  background:   RGBA(255,255,255,0.2);
+  box-sizing:   border-box;
+  font-family:  $whole_font_family;
+  font-size:    $whole_font_size;
+  padding:      10px;
+}
+
+.tableframe
+{
+  @extend %frame_view;
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+%big_text_view
+{
+  font-family: $whole_font_family;
+  font-size: $whole_font_size*1.5;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.tableframe_message
+{
+  @extend %big_text_view;
+}
+
+
