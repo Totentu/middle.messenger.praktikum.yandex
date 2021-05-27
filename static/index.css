@@ -1,207 +1,1095 @@
-.mainframe
-{
-    background-image: url("img/fon_main.png");
-    background-repeat: repeat;
-    text-align: center;
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-.mainframe_href
-{
-    font-family: "Courier New";
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 30px;
-    display: inline-block;
-    color: #5463B4;
-    cursor: pointer;
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-
-.clear_table_frame
-{
-    border: 0;
-    padding: 0;
-    vertical-align: center;
-    text-align: center;
-}
-.mainframe_toppanel
-{
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 310px;
-    height: 50px;
-    overflow: hidden;
-    background: RGBA(255,255,255,0.4);
-    padding: 10px;
-    box-sizing: border-box;
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-
-
-.mainframe_leftpanel
-{
-    position: fixed;
-    left: 0px;
-    top: 50px;
-    width: 310px;
-    height: 100%;
-    overflow: auto;
-    background: RGBA(255,255,255,0.4);
-    font-family: "Courier New";
-    font-size: 18px;
+.writepanel_input, .toppanel_input, .tableframe_input, .tableframe_button {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
 }
 
-.mainframe_chatlist
-{
-    font-family: inherit;
-    font-size: inherit;
-    width: 310px;
-    padding: 10px;
-    cursor: pointer;
+.write_panel, .mainframe_mespanel, .tableframe, .mainframe_leftpanel, .mainframe_toppanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
 }
 
-.mainframe_chatlist:hover
-{
-    background: RGBA(0,0,0,0.1);
-}
-.mainframe_chatlist_title
-{
-    text-align: left;
-    font-weight: bold;
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
 }
 
-.mainframe_chatlist_text
-{
-    text-align: left;
-    font-size: 12px;
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
 }
 
-.mainframe_chatlist_time
-{
-    text-align: right;
-    font-size: 12px;
-}
-.mainframe_chatlist_img
-{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background: RGBA(0,0,0,0.1);
-    background-size: cover;
+.mainframe_href_emergy, .mainframe_href_standart, .tableframe_message {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
-.tableframe_large_img
-{
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    background: RGBA(0,0,0,0.1);
-    background-size: cover;
-    display: inline-block;
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
 }
 
-.mainframe_chatlist_new_box
-{
-    display: block;
-    text-align: right;
-}
-.mainframe_chatlist_new
-{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background: #99BCD6;
-    font-weight: bold;
-    font-size: 12px;
-    box-sizing: border-box;
-    padding-top: 4px;
-    text-align: center;
-    display: inline-block;
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
 }
 
-
-.tableframe
-{
-    font-family: "Courier New";
-    font-size: 18px;
-    text-align: center;
-    padding: 20px;
-    border-spacing: 10px;
-    margin: auto;
-    background: RGBA(255,255,255,0.2);
-    width: 520px;
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-.tableframe_profile_td_quation
-{
-    text-align: left;
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-.tableframe_profile_td_answer
-{
-    text-align: right;
-}
-.tableframe_delimiter
-{
-    border-bottom: 1px solid #000000;
-}
-
-.tableframe_message
-{
-    font-family: "Courier New";
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 30px;
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-.toppanel_input
-{
-    border: 0;
-    font-family: inherit;
-    font-size: inherit;
-    border-radius: 10px;
-    height: 25px;
-    padding-left: 10px;
-    width: 200px;
-    display: inline-block;
-}
-.tableframe_input
-{
-    border: 0;
-    font-family: inherit;
-    font-size: inherit;
-    border-radius: 10px;
-    height: 25px;
-    padding-left: 10px;
-    width: 300px;
+.writepanel_input, .toppanel_input, .tableframe_input, .tableframe_button {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
 }
 
-.mainframe_button_picture
-{
-    width: 30px;
-    height: 30px;
-    background-size: cover;
-    cursor: pointer;
+.write_panel, .mainframe_mespanel, .mainframe_leftpanel, .mainframe_toppanel, .tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
 }
 
-.tableframe_button
-{
-    border: 0;
-    font-family: inherit;
-    font-size: inherit;
-    border-radius: 10px;
-    height: 25px;
-    padding-left: 10px;
-    width: 220px;
-    background-color: #c4c4c4;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    cursor: pointer;
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
 }
 
-.tableframe_button:hover
-{
-    background-color: #b4b4b4;
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
 }
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tableframe_button {
+  text-align: center;
+}
+
+.tableframe_button {
+  width: 220px;
+  background-color: #c4c4c4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tableframe_button:hover {
+  background-color: #b4b4b4;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.writepanel_input, .toppanel_input, .tableframe_input, .tableframe_button {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.write_panel, .mainframe_mespanel, .mainframe_leftpanel, .mainframe_toppanel, .tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.writepanel_input, .toppanel_input, .tableframe_input {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.tableframe_input {
+  width: 300px;
+}
+
+.toppanel_input {
+  width: 200px;
+}
+
+.writepanel_input {
+  width: calc(100% - 120px);
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.write_panel, .mainframe_mespanel, .mainframe_leftpanel, .mainframe_toppanel, .tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_toppanel {
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.clear_table_frame {
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+.button_picture_send, .button_picture_link, .button_picture_search, .button_picture_profile {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.button_picture_profile {
+  background-image: url(/static/img/profile.png);
+}
+
+.button_picture_search {
+  background-image: url(/static/img/search.png);
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.write_panel, .mainframe_mespanel, .mainframe_leftpanel, .tableframe, .mainframe_toppanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_leftpanel {
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+}
+
+.clear_table_frame {
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.write_panel, .mainframe_mespanel, .tableframe, .mainframe_toppanel, .mainframe_leftpanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_mespanel {
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: calc(100% - 310px);
+  overflow: auto;
+  left: 320px;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.write_panel, .tableframe, .mainframe_toppanel, .mainframe_leftpanel, .mainframe_mespanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.write_panel {
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  width: calc(100% - 310px);
+  overflow: hidden;
+  left: 320px;
+}
+
+.clear_table_frame {
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+.button_picture_send, .button_picture_link, .button_picture_profile, .button_picture_search {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.button_picture_link {
+  background-image: url(/static/img/link_file.png);
+  float: left;
+}
+
+.button_picture_send {
+  background-image: url(/static/img/send.png);
+  float: left;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic5, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe, .mainframe_toppanel, .mainframe_leftpanel, .mainframe_mespanel, .write_panel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_toppanel {
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.mainframe_chatlist_img_pic1 {
+  background-image: url(/static/img/pic1.jpg);
+}
+
+.mainframe_chatlist_img_pic2 {
+  background-image: url(/static/img/pic2.jpg);
+}
+
+.mainframe_chatlist_img_pic3 {
+  background-image: url(/static/img/pic3.jpg);
+}
+
+.mainframe_chatlist_img_pic4 {
+  background-image: url(/static/img/pic4.jpg);
+}
+
+.mainframe_chatlist_img_pic5 {
+  background-image: url(/static/img/pic5.jpg);
+}
+
+.mainframe_chatlist_new {
+  background: #99BCD6;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.mainframe_chatlist {
+  font-family: inherit;
+  font-size: inherit;
+  width: 290px;
+  padding: 10px;
+  cursor: pointer;
+}
+.mainframe_chatlist:hover {
+  background: RGBA(0, 0, 0, 0.1);
+}
+
+.mainframe_chatlist_title {
+  text-align: left;
+  font-weight: bold;
+}
+
+.mainframe_chatlist_text {
+  text-align: left;
+  font-size: 12px;
+}
+
+.mainframe_chatlist_time {
+  text-align: right;
+  font-size: 12px;
+}
+
+.mainframe_chatlist_new_box {
+  display: block;
+  text-align: right;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic1, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic5 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe, .mainframe_toppanel, .mainframe_leftpanel, .mainframe_mespanel, .write_panel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mes_list_yours, .mes_list_others {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 50%;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.mes_list_others {
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.mes_list_yours {
+  background-color: #BACCEF;
+  float: right;
+}
+
+.mes_list_author {
+  font-family: Courier New;
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.mes_list_time {
+  font-family: Courier New;
+  font-size: 14px;
+  text-align: right;
+}
+
+.mes_list_text {
+  font-family: Courier New;
+  font-size: 18px;
+  text-align: left;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic1, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic5 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe, .mainframe_toppanel, .mainframe_leftpanel, .mainframe_mespanel, .write_panel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_chatlist_new {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.mainframe_chatlist_img_pic1, .mainframe_chatlist_img_pic2, .mainframe_chatlist_img_pic3, .mainframe_chatlist_img_pic4, .mainframe_chatlist_img_pic5 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe_button, .tableframe_input, .toppanel_input, .writepanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe, .mainframe_toppanel, .mainframe_leftpanel, .mainframe_mespanel, .write_panel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.mainframe_toppanel, .mainframe_leftpanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message, .mainframe_href_emergy, .mainframe_href_standart {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tableframe_large_img {
+  background-image: url(/static/img/pic3.jpg);
+}
+
+.tableframe_profile_td_quation {
+  text-align: left;
+}
+
+.tableframe_profile_td_answer {
+  text-align: right;
+}
+
+.tableframe_delimiter {
+  border-bottom: 1px solid #000000;
+}
+
+.mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_href_emergy {
+  color: #B45454;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */

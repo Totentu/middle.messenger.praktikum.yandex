@@ -1,0 +1,37 @@
+@import "../../../static/global";
+
+.mainframe_toppanel
+{
+  @extend %panel_view;
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.clear_table_frame
+{
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+%button_picture
+{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.button_picture_profile
+{
+  @extend %button_picture;
+  background-image: url(/static/img/profile.png);
+}
+
+.button_picture_search
+{
+  @extend %button_picture;
+  background-image: url(/static/img/search.png);
+}
