@@ -1,3 +1,13 @@
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .toppanel_input, .tableframe_input, .tableframe_button {
   border: 0;
   font-family: Courier New;
@@ -7,12 +17,18 @@
   border-radius: 10px;
 }
 
-.mainframe_leftpanel, .mainframe_toppanel, .tableframe {
+.tableframe, .mainframe_leftpanel, .mainframe_toppanel {
   background: RGBA(255, 255, 255, 0.2);
   box-sizing: border-box;
   font-family: Courier New;
   font-size: 18px;
   padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
 }
 
 .tableframe {
@@ -30,6 +46,16 @@
   padding-bottom: 30px;
 }
 
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .toppanel_input, .tableframe_input, .tableframe_button {
   border: 0;
   font-family: Courier New;
@@ -45,6 +71,12 @@
   font-family: Courier New;
   font-size: 18px;
   padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
 }
 
 .tableframe {
@@ -76,6 +108,16 @@
   background-color: #b4b4b4;
 }
 
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .toppanel_input, .tableframe_input, .tableframe_button {
   border: 0;
   font-family: Courier New;
@@ -91,6 +133,12 @@
   font-family: Courier New;
   font-size: 18px;
   padding: 10px;
+}
+
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
 }
 
 .tableframe {
@@ -121,6 +169,16 @@
   width: 200px;
 }
 
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background: RGBA(255, 255, 255, 0.1);
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 .tableframe_button, .tableframe_input, .toppanel_input {
   border: 0;
   font-family: Courier New;
@@ -138,6 +196,12 @@
   padding: 10px;
 }
 
+.mainframe_leftpanel, .mainframe_toppanel {
+  position: fixed;
+  left: 0;
+  width: 310px;
+}
+
 .tableframe {
   text-align: center;
   margin: auto;
@@ -153,24 +217,32 @@
   padding-bottom: 30px;
 }
 
-.mainframe_chatlist_new {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background: RGBA(255, 255, 255, 0.1);
-  background-size: cover;
-  display: inline-block;
-  box-sizing: border-box;
+.mainframe_toppanel {
+  top: 0;
+  height: 50px;
+  overflow: hidden;
 }
 
-.mainframe_chatlist_img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background: RGBA(255, 255, 255, 0.1);
+.clear_table_frame {
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}
+
+.button_picture_search, .button_picture_profile {
+  width: 30px;
+  height: 30px;
   background-size: cover;
-  display: inline-block;
-  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button_picture_profile {
+  background-image: url(/static/img/profile.png);
+}
+
+.button_picture_search {
+  background-image: url(/static/img/search.png);
 }
 
 .tableframe_large_img {
@@ -183,10 +255,42 @@
   box-sizing: border-box;
 }
 
+.tableframe_button, .tableframe_input, .toppanel_input {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.mainframe_leftpanel, .tableframe, .mainframe_toppanel {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
 .mainframe_leftpanel, .mainframe_toppanel {
   position: fixed;
   left: 0;
   width: 310px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.mainframe_href, .tableframe_message {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 .mainframe {
@@ -195,62 +299,10 @@
   text-align: center;
 }
 
-.mainframe_toppanel {
-  top: 0;
-  height: 50px;
-  overflow: hidden;
-}
-
 .mainframe_leftpanel {
   top: 50px;
   height: 100%;
   overflow: auto;
-}
-
-.mainframe_chatlist_new {
-  background: #99BCD6;
-  font-weight: bold;
-  font-size: 12px;
-  padding-top: 4px;
-  text-align: center;
-}
-
-.clear_table_frame {
-  border: 0;
-  padding: 0;
-  vertical-align: center;
-  text-align: center;
-}
-
-.mainframe_chatlist {
-  font-family: inherit;
-  font-size: inherit;
-  width: 290px;
-  padding: 10px;
-  cursor: pointer;
-}
-.mainframe_chatlist:hover {
-  background: RGBA(0, 0, 0, 0.1);
-}
-
-.mainframe_chatlist_title {
-  text-align: left;
-  font-weight: bold;
-}
-
-.mainframe_chatlist_text {
-  text-align: left;
-  font-size: 12px;
-}
-
-.mainframe_chatlist_time {
-  text-align: right;
-  font-size: 12px;
-}
-
-.mainframe_chatlist_new_box {
-  display: block;
-  text-align: right;
 }
 
 .tableframe_profile_td_quation {
@@ -268,22 +320,6 @@
 .mainframe_href {
   color: #5463B4;
   display: inline-block;
-  cursor: pointer;
-}
-
-.tableframe_button, .tableframe_input, .toppanel_input {
-  border: 0;
-  font-family: Courier New;
-  font-size: 18px;
-  height: 25px;
-  display: inline-block;
-  border-radius: 10px;
-}
-
-.mainframe_button_picture {
-  width: 30px;
-  height: 30px;
-  background-size: cover;
   cursor: pointer;
 }
 

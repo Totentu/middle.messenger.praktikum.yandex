@@ -1,11 +1,17 @@
-import {LoginPageTemplate} from './pages/login/index';
-import {RegistryPageTemplate} from "./pages/registry";
+
+import {MainPageTemplate}       from "./pages/main/index";
+import {LoginPageTemplate}      from './pages/login/index';
+import {RegistryPageTemplate}   from "./pages/registry/index";
 
 let page=document.location.pathname;
 let html="";
 let page_html, page_data;
 
 switch(page) {
+    case '/main.html':
+        page_html = Handlebars.compile(MainPageTemplate);
+        page_data={};
+        break;
     case '/registry.html':
         page_html = Handlebars.compile(RegistryPageTemplate);
         page_data={
@@ -20,8 +26,8 @@ switch(page) {
             title: 'Регистрация',
         };
         break;
-
-    default:
+    case '/login.html':
+    case '/':
         page_html = Handlebars.compile(LoginPageTemplate);
         page_data={
             fields: [
@@ -30,6 +36,12 @@ switch(page) {
             ],
             title: 'Авторизация',
         };
+        break;
+    default:
+        const express = require('express');
+        const app = express();
+        app.use(express.static('./'));
+
         break;
 }
 

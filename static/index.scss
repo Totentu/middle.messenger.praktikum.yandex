@@ -1,46 +1,14 @@
 @import "global";
 @import "../src/components/button/button";
 @import "../src/components/input/input";
+@import "../src/components/top_panel/top_panel";
 @import "../src/pages/login/login";
-
-$left_panel_width:     310px;
-$circle_size: (small: 20px, medium: 50px, large: 150px);
-
-@each $circle, $size in $circle_size {
-  %circle_form_#{$circle}
-  {
-    width: $size;
-    height: $size;
-    border-radius: $size;
-    background: RGBA(255,255,255,0.1);
-    background-size: cover;
-    display: inline-block;
-    box-sizing: border-box;
-  }
-}
-
-%panel_view
-{
-  @extend %frame_view;
-  position: fixed;
-  left: 0;
-  width: $left_panel_width;
-}
 
 .mainframe
 {
   background-image: url("/static/img/fon_main.png");
   background-repeat: repeat;
   text-align: center;
-}
-
-
-.mainframe_toppanel
-{
-  @extend %panel_view;
-  top: 0;
-  height: 50px;
-  overflow: hidden;
 }
 
 .mainframe_leftpanel
@@ -52,67 +20,11 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
 
 }
 
-.mainframe_chatlist_img
-{
-  @extend %circle_form_medium;
-}
-
 .tableframe_large_img
 {
   @extend %circle_form_large;
 }
 
-.mainframe_chatlist_new
-{
-  @extend %circle_form_small;
-  background: #99BCD6;
-  font-weight: bold;
-  font-size: 12px;
-  padding-top: 4px;
-  text-align: center;
-}
-
-.clear_table_frame
-{
-  border: 0;
-  padding: 0;
-  vertical-align: center;
-  text-align: center;
-}
-
-.mainframe_chatlist
-{
-  font-family:  inherit;
-  font-size:    inherit;
-  width:        ($left_panel_width - 20);
-  padding:      10px;
-  cursor:       pointer;
-  &:hover  {    background: RGBA(0,0,0,0.1);  }
-}
-
-.mainframe_chatlist_title
-{
-  text-align: left;
-  font-weight: bold;
-}
-
-.mainframe_chatlist_text
-{
-  text-align: left;
-  font-size: 12px;
-}
-
-.mainframe_chatlist_time
-{
-  text-align: right;
-  font-size: 12px;
-}
-
-.mainframe_chatlist_new_box
-{
-  display: block;
-  text-align: right;
-}
 
 .tableframe_profile_td_quation
 {
@@ -135,24 +47,5 @@ $circle_size: (small: 20px, medium: 50px, large: 150px);
   @extend %big_text_view;
   color: #5463B4;
   display: inline-block;
-  cursor: pointer;
-}
-
-
-%text_view
-{
-  border: 0;
-  font-family: $whole_font_family;
-  font-size: $whole_font_size;
-  height: 25px;
-  display: inline-block;
-  border-radius: 10px;
-}
-
-.mainframe_button_picture
-{
-  width: 30px;
-  height: 30px;
-  background-size: cover;
   cursor: pointer;
 }

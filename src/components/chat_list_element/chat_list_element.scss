@@ -1,0 +1,58 @@
+@import "../../../static/global";
+
+.mainframe_toppanel
+{
+  @extend %panel_view;
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.mainframe_chatlist_img
+{
+  @extend %circle_form_medium;
+}
+
+.mainframe_chatlist_new
+{
+  @extend %circle_form_small;
+  background: #99BCD6;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.mainframe_chatlist
+{
+  font-family:  inherit;
+  font-size:    inherit;
+  width:        ($left_panel_width - 20);
+  padding:      10px;
+  cursor:       pointer;
+  &:hover  {    background: RGBA(0,0,0,0.1);  }
+}
+
+.mainframe_chatlist_title
+{
+  text-align: left;
+  font-weight: bold;
+}
+
+.mainframe_chatlist_text
+{
+  text-align: left;
+  font-size: 12px;
+}
+
+.mainframe_chatlist_time
+{
+  text-align: right;
+  font-size: 12px;
+}
+
+.mainframe_chatlist_new_box
+{
+  display: block;
+  text-align: right;
+}

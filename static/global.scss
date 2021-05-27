@@ -1,5 +1,21 @@
 $whole_font_family:    Courier New;
 $whole_font_size:      18px;
+$left_panel_width:     310px;
+
+$circle_size: (small: 20px, medium: 50px, large: 150px);
+
+@each $circle, $size in $circle_size {
+  %circle_form_#{$circle}
+  {
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    background: RGBA(255,255,255,0.1);
+    background-size: cover;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+}
 
 %text_view
 {
@@ -18,6 +34,14 @@ $whole_font_size:      18px;
   font-family:  $whole_font_family;
   font-size:    $whole_font_size;
   padding:      10px;
+}
+
+%panel_view
+{
+  @extend %frame_view;
+  position: fixed;
+  left: 0;
+  width: $left_panel_width;
 }
 
 .tableframe
@@ -42,5 +66,3 @@ $whole_font_size:      18px;
 {
   @extend %big_text_view;
 }
-
-

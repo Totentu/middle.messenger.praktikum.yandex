@@ -1,0 +1,17 @@
+@import "../../../static/global";
+
+.mainframe_toppanel
+{
+  @extend %panel_view;
+  top: 0;
+  height: 50px;
+  overflow: hidden;
+}
+
+.clear_table_frame
+{
+  border: 0;
+  padding: 0;
+  vertical-align: center;
+  text-align: center;
+}

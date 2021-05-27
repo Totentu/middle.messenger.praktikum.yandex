@@ -1,0 +1,1 @@
+export {template as img_buttonTemplate} from './top_panel.tmpl';
