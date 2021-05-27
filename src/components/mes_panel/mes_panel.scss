@@ -1,0 +1,12 @@
+@import "../../../static/global";
+
+.mainframe_mespanel
+{
+  @extend %frame_view;
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: calc(100% - #{$left_panel_width});
+  overflow: auto;
+  left: $left_panel_width+10;
+}

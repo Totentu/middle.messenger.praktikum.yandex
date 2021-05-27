@@ -1,0 +1,1 @@
+export {template as mes_panelTemplate} from './mes_panel.tmpl';

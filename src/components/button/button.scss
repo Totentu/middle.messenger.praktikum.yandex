@@ -1,0 +1,17 @@
+@import "../../../static/global";
+
+%button_view
+{
+  @extend %text_view;
+  text-align: center;
+}
+
+.tableframe_button
+{
+  @extend %button_view;
+  width: 220px;
+  background-color: #c4c4c4;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  &:hover  {    background-color: #b4b4b4;  }
+  cursor: pointer;
+}
