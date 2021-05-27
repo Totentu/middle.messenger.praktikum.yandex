@@ -21,4 +21,10 @@
   padding-bottom: 30px;
 }
 
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
 /*# sourceMappingURL=global.css.map */

@@ -2,50 +2,11 @@
 @import "../src/components/button/button";
 @import "../src/components/input/input";
 @import "../src/components/top_panel/top_panel";
+@import "../src/components/left_panel/left_panel";
+@import "../src/components/mes_panel/mes_panel";
+@import "../src/components/write_panel/write_panel";
+@import "../src/components/chat_list_element/chat_list_element";
+@import "../src/components/mes_list_element/mes_list_element";
 @import "../src/pages/login/login";
+@import "../src/pages/profile/profile";
 
-.mainframe
-{
-  background-image: url("/static/img/fon_main.png");
-  background-repeat: repeat;
-  text-align: center;
-}
-
-.mainframe_leftpanel
-{
-  @extend %panel_view;
-  top: 50px;
-  height: 100%;
-  overflow: auto;
-
-}
-
-.tableframe_large_img
-{
-  @extend %circle_form_large;
-}
-
-
-.tableframe_profile_td_quation
-{
-  text-align: left;
-}
-
-.tableframe_profile_td_answer
-{
-  text-align: right;
-}
-
-.tableframe_delimiter
-{
-  border-bottom: 1px solid #000000;
-}
-
-
-.mainframe_href
-{
-  @extend %big_text_view;
-  color: #5463B4;
-  display: inline-block;
-  cursor: pointer;
-}

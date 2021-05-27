@@ -1,11 +1,12 @@
 @import "../../../static/global";
 
-.mainframe_toppanel
+.mainframe_leftpanel
 {
   @extend %panel_view;
-  top: 0;
-  height: 50px;
-  overflow: hidden;
+  top: 50px;
+  height: 100%;
+  overflow: auto;
+
 }
 
 .clear_table_frame

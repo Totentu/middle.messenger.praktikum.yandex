@@ -1,1 +1,1 @@
-export {template as img_buttonTemplate} from './left_panel.tmpl';
+export {template as left_panelTemplate} from './left_panel.tmpl';

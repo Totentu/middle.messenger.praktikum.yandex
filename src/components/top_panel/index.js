@@ -1,1 +1,1 @@
-export {template as img_buttonTemplate} from './top_panel.tmpl';
+export {template as top_panelTemplate} from './top_panel.tmpl';

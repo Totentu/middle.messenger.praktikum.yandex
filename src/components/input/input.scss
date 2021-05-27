@@ -18,3 +18,12 @@
   @extend %input_view;
   width: 200px;
 }
+
+.writepanel_input
+{
+  @extend %input_view;
+  width: calc(100% - 120px);
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
