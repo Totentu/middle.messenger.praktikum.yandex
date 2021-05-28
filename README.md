@@ -6,6 +6,9 @@ https://www.figma.com/proto/EduXWeAso0ymv9iv5mOGcM/sprint_1?node-id=23%3A46&scal
 Ссылка на публикацию ветки deploy:
 https://yp-7k-ivan-sprint-1.netlify.app/
 
+Ссылка на PR для проверки:
+https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/8
+
 ## Описание  
 
 Проект Sprint_1. Прототип чата.
@@ -14,7 +17,7 @@ https://yp-7k-ivan-sprint-1.netlify.app/
 
 ## Команды
 
-- `npm run dev` — сборка проекта,
+- `npm run build` — сборка проекта,
 - `npm run start` — запуск проекта на порту 3000,
 
 ## Описание структуры проекта
