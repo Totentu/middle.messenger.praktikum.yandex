@@ -5,7 +5,12 @@ import {ProfilePageTemplate}                from "./pages/profile/index";
 import {ProfileChangeDataPageTemplate}      from "./pages/profile_change_data/index";
 import {ProfileChangePassPageTemplate}      from "./pages/profile_change_pass/index";
 
-let page=document.location.pathname;
+const searchString = new URLSearchParams(window.location.search);
+const current_template = searchString.get('template');
+let page='';
+
+current_template!=null ? page='/'+current_template : page=document.location.pathname;
+
 let html="";
 let page_html, page_data;
 
