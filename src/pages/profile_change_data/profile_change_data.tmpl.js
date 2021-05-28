@@ -16,9 +16,6 @@ export const template=`
         <td class="tableframe_profile_td_quation">{{field_title}}:</td>
         <td>`+input_tmpl({field_name: '{{field_name}}',  class_name: 'tableframe_input', field_value: '{{field_value}}'})+`</td>
     </tr>
-    <tr class="tableframe_profile_tr">
-        <td class="tableframe_delimiter" colspan="2"></td>
-    </tr>
     {{/each}} 
 
     <tr><td></td></tr>
