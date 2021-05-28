@@ -12,7 +12,7 @@ export const template=`
     </tr>
 
     {{#each fields}}
-    <tr>
+    <tr> 
         <td class="tableframe_profile_td_quation">{{field_title}}:</td>
         <td>`+input_tmpl({field_name: '{{field_name}}',  class_name: 'tableframe_input', field_value: '{{field_value}}'})+`</td>
     </tr>
