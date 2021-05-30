@@ -9,6 +9,9 @@
     "dev": "./node_modules/.bin/parcel index.html",
     "build": "./node_modules/.bin/parcel build index.html"
   },
+  "engines": {
+    "node": ">=12.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Totentu/middle.messenger.praktikum.yandex.git"
