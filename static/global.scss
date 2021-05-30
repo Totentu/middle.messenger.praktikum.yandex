@@ -1,7 +1,6 @@
 $whole_font_family:    Courier New;
 $whole_font_size:      18px;
 $left_panel_width:     310px;
-
 $circle_size: (small: 20px, medium: 50px, large: 150px);
 
 @each $circle, $size in $circle_size {
