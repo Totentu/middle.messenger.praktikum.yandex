@@ -1,0 +1,53 @@
+.tableframe_button {
+  border: 0;
+  font-family: Courier New;
+  font-size: 18px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.tableframe_button {
+  text-align: center;
+}
+
+.tableframe_button {
+  width: 220px;
+  background-color: #c4c4c4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tableframe_button:hover {
+  background-color: #b4b4b4;
+}
+
+/*# sourceMappingURL=button.css.map */

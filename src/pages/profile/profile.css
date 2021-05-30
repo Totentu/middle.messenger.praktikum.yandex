@@ -1,0 +1,73 @@
+.tableframe_large_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  background-size: cover;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart, .tableframe_message {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+.mainframe_href_emergy, .mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tableframe_large_img {
+  background-image: url(/static/img/pic3.jpg);
+}
+
+.tableframe_profile_td_quation {
+  text-align: left;
+}
+
+.tableframe_profile_td_answer {
+  text-align: right;
+}
+
+.tableframe_delimiter {
+  border-bottom: 1px solid #000000;
+}
+
+.mainframe_href_standart {
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_href_emergy {
+  color: #B45454;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=profile.css.map */
