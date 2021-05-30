@@ -1,0 +1,30 @@
+.tableframe {
+  background: RGBA(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  font-family: Courier New;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.tableframe {
+  text-align: center;
+  margin: auto;
+  width: 520px;
+  border-spacing: 10px;
+}
+
+.tableframe_message {
+  font-family: Courier New;
+  font-size: 27px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.mainframe {
+  background-image: url("/static/img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
+/*# sourceMappingURL=global.css.map */
