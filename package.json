@@ -2,16 +2,7 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "sprint_1",
-  "main": "./dist/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/parcel index.html --port 3000",
-    "dev": "./node_modules/.bin/parcel index.html",
-    "build": "./node_modules/.bin/parcel build index.html"
-  },
-  "engines": {
-    "node": ">=12.0"
-  },
+  "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Totentu/middle.messenger.praktikum.yandex.git"
@@ -22,12 +13,5 @@
     "url": "https://github.com/Totentu/middle.messenger.praktikum.yandex/issues"
   },
   "homepage": "https://github.com/Totentu/middle.messenger.praktikum.yandex#readme",
-  "devDependencies": {
-    "express": "^4.17.1",
-    "parcel": "^2.0.0-beta.2"
-  },
-  "dependencies": {
-    "hbs": "^4.1.2"
-  },
   "keywords": []
 }
