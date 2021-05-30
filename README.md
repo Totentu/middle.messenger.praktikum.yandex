@@ -38,6 +38,3 @@ https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/10
 
 Для описания стилей выбран SCSS. Итоговый файл index.scss находится в папке static и является сборщиков всех scss-файлов
 компонентов и страниц проекта, а также выделенного для общих элементов стилей файла global.scss.
-
-
-
