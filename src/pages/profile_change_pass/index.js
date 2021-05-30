@@ -1,1 +1,0 @@
-export {template as ProfileChangePassPageTemplate} from './profile_change_pass.tmpl';

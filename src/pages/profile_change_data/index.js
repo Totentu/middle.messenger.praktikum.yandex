@@ -1,1 +1,0 @@
-export {template as ProfileChangeDataPageTemplate} from './profile_change_data.tmpl';
