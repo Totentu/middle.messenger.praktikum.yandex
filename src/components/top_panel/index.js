@@ -1,0 +1,1 @@
+export {template as top_panelTemplate} from './top_panel.tmpl';

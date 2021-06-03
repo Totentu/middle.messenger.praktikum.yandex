@@ -1,0 +1,38 @@
+@import "../../../static/global";
+
+.tableframe_large_img
+{
+  @extend %circle_form_large;
+  background-image: url(/static/img/pic3.jpg);
+}
+
+.tableframe_profile_td_quation
+{
+  text-align: left;
+}
+
+.tableframe_profile_td_answer
+{
+  text-align: right;
+}
+
+.tableframe_delimiter
+{
+  border-bottom: 1px solid #000000;
+}
+
+.mainframe_href_standart
+{
+  @extend %mainframe_href;
+  color: #5463B4;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.mainframe_href_emergy
+{
+  @extend %mainframe_href;
+  color: #B45454;
+  display: inline-block;
+  cursor: pointer;
+}

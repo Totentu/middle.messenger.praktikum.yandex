@@ -1,0 +1,1 @@
+export {template as MainPageTemplate} from './main.tmpl';
