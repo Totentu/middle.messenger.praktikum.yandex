@@ -6,7 +6,7 @@ let input_tmpl = Handlebars.compile(inputTemplate);
 
 export const template=`
 
-<table class="tableframe"> 
+<table class="tableframe">
     <tr>
         <td class="tableframe_message" colspan="2">{{title}}</td>
     </tr>
