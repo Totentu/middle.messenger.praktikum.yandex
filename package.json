@@ -2,8 +2,15 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "sprint_1",
-  "main": "index.html",
+  "main": "./dist/index.html",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/parcel index.html --port 3000",
+    "dev": "./node_modules/.bin/parcel index.html",
+    "build": "./node_modules/.bin/parcel build index.html"
+  },
+  "engines": {
+    "node": ">=12.0"
   },
   "repository": {
     "type": "git",
@@ -18,6 +25,9 @@
   "devDependencies": {
     "express": "^4.17.1",
     "parcel": "^2.0.0-beta.2"
+  },
+  "dependencies": {
+    "hbs": "^4.1.2"
   },
   "keywords": []
 }
