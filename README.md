@@ -1,4 +1,4 @@
-## Техническая информация
+## Техническая информация 
 
 Ссылка на прототипы:
 https://www.figma.com/proto/EduXWeAso0ymv9iv5mOGcM/sprint_1?node-id=23%3A46&scaling=min-zoom&page-id=0%3A1
