@@ -1,13 +1,12 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "sprint_1",
+  "description": "sprint_2",
   "main": "./dist/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/parcel index.html --port 3000",
-    "dev": "./node_modules/.bin/parcel index.html",
-    "build": "./node_modules/.bin/parcel build index.html"
+    "start": "parcel index.html --port 3000",
+    "dev": "parcel index.html --port 3000",
+    "build": "parcel build index.html"
   },
   "engines": {
     "node": ">=12.0"
@@ -23,11 +22,25 @@
   },
   "homepage": "https://github.com/Totentu/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-beta.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "@typescript-eslint/typescript-estree": "^4.26.0",
+    "eslint": "^7.27.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-promise": "^5.1.0",
     "express": "^4.17.1",
-    "parcel": "^2.0.0-beta.2"
+    "parcel": "^2.0.0-beta.3.1",
+    "parcel-reporter-static-files-copy": "^1.3.0",
+    "typescript": "^4.3.2"
   },
   "dependencies": {
     "hbs": "^4.1.2"
+  },
+  "staticFiles": {
+    "staticPath": "img",
+    "staticOutPath": "img"
   },
   "keywords": []
 }

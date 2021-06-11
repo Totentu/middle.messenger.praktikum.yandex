@@ -1,0 +1,10 @@
+@import "../../../css/global";
+
+.nav_panel
+{
+  @extend %flex-container;
+  max-width: 310px;
+  justify-content: flex-start;
+  grid-area: nav;
+}
+

@@ -1,2 +1,12 @@
-@import "../../../static/global";
+@import "../../../css/global";
 
+.main
+{
+  display: grid;
+  grid-template-areas: "nav   title"
+                       "chats mes "
+                       "chats write";
+  grid-template-rows:  50px calc(100vh - 150px) 50px;
+  grid-template-columns: 310px calc(100% - 330px);
+  gap: 10px;
+}

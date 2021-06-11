@@ -1,4 +1,4 @@
-@import "../../../static/global";
+@import "../../../css/global";
 
 %input_view
 {
@@ -7,13 +7,13 @@
   text-align: left;
 }
 
-.tableframe_input
+.form__input
 {
   @extend %input_view;
-  width: 300px;
+  width: 200px;
 }
 
-.toppanel_input
+.chats_panel__input
 {
   @extend %input_view;
   width: 200px;
