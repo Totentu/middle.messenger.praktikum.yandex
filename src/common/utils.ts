@@ -34,7 +34,7 @@ function GetCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
 function SubmitControl (inForm: Block): void {
   if (this.props.type === 'submit') {
     let flagReady = true;
-    for (const node of inForm.props.fields) {
+    for (const node of inForm.props['fields']) {
       const readyField = GetCorrectValue.bind(inForm.props[node.field_name])(node.regControl, node.errMes);
       flagReady = flagReady && readyField;
     }

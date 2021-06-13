@@ -18,7 +18,7 @@ export default class TitlePanel extends Block {
     const nodeStructure = ConstructDomTree(TitlePanelTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.title_panel__photo');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props.photo})`);
+    photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
 
     return nodeStructure.body;
   }

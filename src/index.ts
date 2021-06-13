@@ -1,5 +1,6 @@
 import {PageMain} from './pages/main/index';
 import {PageForm} from './pages/form/index';
+import HTTPTransport from './common/xhr';
 import {VALIDATE_FORM} from './common/constants';
 
 const searchString = new URLSearchParams(window.location.search);
@@ -103,34 +104,15 @@ switch (page) {
 
 document.querySelector('#root').append(pageDOM._element);
 
-/*
+// Тестирование работы запросов
+document.querySelector('#proxy_test').textContent = 'Отправка запроса через 1 секунду.';
+const HTTP = new HTTPTransport();
 setTimeout(() => {
-  pageDOM.props?.ChatsPanel?.props?.searchBtnImg?.setProps({
-    src: 'link_file.png'
-  });
+  HTTP.get(page
+  ).then(
+    (data) => {
+      document.querySelector('#proxy_test').textContent += '\r\nОтвет получен. Статус : ' + data['status'];
+      document.querySelector('#proxy_test').textContent += '\r\n' + data['responseText'];
+    }
+  );
 }, 1000);
-
-setTimeout(() => {
-  pageDOM.props?.TitlePanel.setProps({
-    title: 'Проверка'
-  });
-}, 2000);
-
-setTimeout(() => {
-  pageDOM.props.btnLogin?.setProps({
-    text: 'test'
-  });
-}, 1000);
-
-setTimeout(() => {
-  pageDOM.setProps({
-    title: 'test'
-  });
-}, 2000);
-
-setTimeout(() => {
-  pageDOM.props.login?.setProps({
-    field_value: 'test'
-  });
-}, 3000);
-*/

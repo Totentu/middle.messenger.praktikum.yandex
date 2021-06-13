@@ -13,7 +13,7 @@ export default class Block {
 
     _element = null;
     _meta = null;
-    props: any;
+    props: ProxyConstructor;
     eventBus: () => EventBus;
 
     /** JSDoc

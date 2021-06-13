@@ -21,7 +21,7 @@ export default class ChatElement extends Block {
     const nodeStructure = ConstructDomTree(ChatElementTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.chat_element__photo');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props.photo})`);
+    photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
 
     return nodeStructure.body;
   }

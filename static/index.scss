@@ -15,3 +15,16 @@
 //Страницы
 @import "../src/pages/form/form";
 @import "../src/pages/main/main";
+
+.proxy_test {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 310px;
+  height: 310px;
+  overflow: auto;
+  z-index: 1000;
+  white-space: pre-line;
+  text-align: left;
+  padding: 10px;
+}
