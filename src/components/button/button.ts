@@ -6,12 +6,13 @@ interface buttonData {
   href: string;
   text: string;
   class: string;
+  type?: string;
 }
 
 export default class Button extends Block {
   constructor (props: buttonData) {
-    super('a', props);
-    this._element.href = this.props.href;
+    super('button', props);
+    this._element.className = props.class;
   }
 
   render (): HTMLElement {

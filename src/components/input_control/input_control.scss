@@ -1,0 +1,12 @@
+@import "../../../static/global";
+
+.form__input_control {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  color: #f00;
+  font-size: 14px;
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+  font-family: $whole_font_family;
+}

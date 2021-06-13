@@ -58,7 +58,7 @@ export default class PageMain extends Block {
         time: 'был в сети 2 часа назад'
       }),
       WritePanel: new WritePanel({
-        writeValue: 'Начал писать сообщение...'
+        writeValue: 'Начал писать сообщение. ok'
       })
     };
     super('div', outData);

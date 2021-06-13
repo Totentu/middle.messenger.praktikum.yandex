@@ -1,19 +1,17 @@
-$whole_font_family:    Courier New;
+$whole_font_family:    courier new;
 $whole_font_size:      18px;
 
-%flex-container
-{
+%flex-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  background:   RGBA(255,255,255,0.2);
-  font-family:  $whole_font_family;
-  font-size:    $whole_font_size;
+  background: rgba(255, 255, 255, 0.2);
+  font-family: $whole_font_family;
+  font-size: $whole_font_size;
   padding: 10px;
 }
 
-%text_view
-{
+%text_view {
   border: 0;
   font-family: $whole_font_family;
   font-size: $whole_font_size;
@@ -26,8 +24,7 @@ $whole_font_size:      18px;
   height: 0;
 }
 
-%big_text_view
-{
+%big_text_view {
   font-family: $whole_font_family;
   font-size: $whole_font_size*1.5;
   font-weight: bold;
@@ -35,10 +32,8 @@ $whole_font_size:      18px;
   padding-bottom: 30px;
 }
 
-.mainframe
-{
+.mainframe {
   background-image: url("../img/fon_main.png");
   background-repeat: repeat;
   text-align: center;
 }
-

@@ -1,19 +1,17 @@
 @import "../../../static/global";
 
-.chats_panel
-{
+.chats_panel {
   @extend %flex-container;
+
   max-width: 310px;
   justify-content: center;
   grid-area: chats;
-  align-content: flex-start
+  align-content: flex-start;
 }
 
-.chats_panel__search_panel
-{
+.chats_panel__search_panel {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
 }
-

@@ -1,7 +1,6 @@
 @import "../../../static/global";
 
-%mes_list
-{
+%mes_list {
   display: flex;
   box-sizing: border-box;
   padding: 10px;
@@ -12,37 +11,34 @@
   justify-content: space-between;
 }
 
-.mes_element__others
-{
+.mes_element__others {
   @extend %mes_list;
-  background-color: #FFFFFF;
+
+  background-color: #fff;
   margin-right: 40%;
 }
 
-.mes_element__yours
-{
+.mes_element__yours {
   @extend %mes_list;
-  background-color: #BACCEF;
+
+  background-color: #baccef;
   margin-left: 40%;
 }
 
-.mes_element__author
-{
+.mes_element__author {
   font-family: $whole_font_family;
   font-size: 14px;
   text-align: left;
   font-weight: bold;
 }
 
-.mes_element__time
-{
+.mes_element__time {
   font-family: $whole_font_family;
   font-size: 14px;
   text-align: right;
 }
 
-.mes_element__text
-{
+.mes_element__text {
   font-family: $whole_font_family;
   font-size: $whole_font_size;
   text-align: left;

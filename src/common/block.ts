@@ -1,7 +1,7 @@
 import EventBus from './event_bus';
 
 type Callback = (...args) => void;
-type property = string | number | boolean | HTMLElement | Callback;
+type property = string | number | boolean | HTMLElement | Callback | Record<string, string | number | boolean | HTMLElement | Callback>;
 
 export default class Block {
     static EVENTS = {
@@ -13,7 +13,7 @@ export default class Block {
 
     _element = null;
     _meta = null;
-    props: ProxyConstructor;
+    props: any;
     eventBus: () => EventBus;
 
     /** JSDoc
@@ -28,7 +28,8 @@ export default class Block {
         tagName,
         props
       };
-
+      const key = 'events';
+      if (typeof (props[key]) === 'undefined') props[key] = {};
       this.props = this._makePropsProxy(props);
 
       this.eventBus = () => eventBus;
@@ -72,7 +73,7 @@ export default class Block {
       return (JSON.stringify(oldProps) !== JSON.stringify(newProps));
     }
 
-    setProps = (nextProps: ProxyConstructor) : void => {
+    setProps = (nextProps: Record<string, property>) : void => {
       if (!nextProps) {
         return;
       }
@@ -91,6 +92,24 @@ export default class Block {
       return this._element;
     }
 
+    _addEvents (): void {
+      const key = 'events';
+      const eventList = this.props[key];
+
+      Object.keys(eventList).forEach(eventName => {
+        this._element.addEventListener(eventName, eventList[eventName]);
+      });
+    }
+
+    _removeEvents (): void {
+      const key = 'events';
+      const eventList = this.props[key];
+
+      Object.keys(eventList).forEach(eventName => {
+        this._element.removeEventListener(eventName, eventList[eventName]);
+      });
+    }
+
     _render (): void {
       const block : HTMLElement = this.render();
       while (this._element.firstChild) {
@@ -103,6 +122,7 @@ export default class Block {
           }
         }
       }
+      this._addEvents();
     }
 
     render (): HTMLElement {

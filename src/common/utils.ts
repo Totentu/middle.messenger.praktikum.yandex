@@ -1,7 +1,7 @@
 import Block from 'block';
 import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
 
-function ConstructDomTree (Template: string, Properties: Record<string, string | Block>): Document {
+function ConstructDomTree (Template: string, Properties: ProxyConstructor): Document {
   const template = Handlebars.compile(Template);
 
   const HTMLString = template(Properties);
@@ -18,4 +18,32 @@ function ConstructDomTree (Template: string, Properties: Record<string, string |
   return nodeStructure;
 }
 
-export {ConstructDomTree};
+function GetCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
+  if (typeof (inRegExp) === 'undefined') return true;
+  const res = inRegExp.test(this.element.value);
+  if (res) {
+    this.props.control.setProps({textContent: ''});
+    this.props.control.hide();
+  } else {
+    this.props.control.setProps({textContent: inErrMes});
+    this.props.control.show();
+  }
+  return res;
+}
+
+function SubmitControl (inForm: Block): void {
+  if (this.props.type === 'submit') {
+    let flagReady = true;
+    for (const node of inForm.props.fields) {
+      const readyField = GetCorrectValue.bind(inForm.props[node.field_name])(node.regControl, node.errMes);
+      flagReady = flagReady && readyField;
+    }
+    if (flagReady) {
+      if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') window.location = this.props.href;
+    }
+  } else {
+    if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') window.location = this.props.href;
+  }
+}
+
+export {ConstructDomTree, GetCorrectValue, SubmitControl};

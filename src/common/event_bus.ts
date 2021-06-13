@@ -30,8 +30,6 @@ export default class EventBus {
     }
 
     this.listeners[event].forEach(function (listener) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       listener(...args);
     });
   }

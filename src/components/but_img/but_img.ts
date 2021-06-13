@@ -5,19 +5,26 @@ import {template as butImgTemplate} from './but_img.tmpl';
 interface btnImgData {
   href: string;
   src: string;
+  type?: string;
 }
 
 export default class ButImg extends Block {
   constructor (props: btnImgData) {
-    super('a', props);
-    this._element.href = this.props.href;
+    super('div', props);
+    if (props.type !== 'submit' && typeof (props.href) !== 'undefined') {
+      this.setProps({
+        events: {
+          click: () => { if (typeof (props.href) !== 'undefined' && props.href !== '') window.location.href = props.href; }
+        }
+      });
+    }
   }
 
   render (): HTMLElement {
     const nodeStructure = ConstructDomTree(butImgTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.form__but_img');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props.src})`);
+    photoNode.setAttribute('style', `background-image: url(img/${this.props['' + 'src']})`);
 
     return nodeStructure.body;
   }

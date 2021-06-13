@@ -1,28 +1,27 @@
 @import "../../../static/global";
 
-.form
-{
+.form {
   @extend %flex-container;
+
   width: 100%;
   max-width: 500px;
   margin: auto;
   justify-content: center;
 }
 
-.form__title
-{
+.form__title {
   @extend %big_text_view;
+
   width: 100%;
 }
 
-.form__label
-{
+.form__label {
   @extend %text_view;
+
   min-width: 150px;
 }
 
-.form__fields
-{
+.form__fields {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
@@ -30,12 +29,10 @@
   justify-content: center;
 }
 
-.form__buttons
-{
+.form__buttons {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-around;
 }
-
