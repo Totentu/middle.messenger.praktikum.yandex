@@ -1,4 +1,4 @@
-$whole_font_family:    courier new;
+$whole_font_family:    helvetica, arial, verdana, tahoma;
 $whole_font_size:      18px;
 
 %flex-container {
@@ -30,10 +30,4 @@ $whole_font_size:      18px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 30px;
-}
-
-.mainframe {
-  background-image: url("../img/fon_main.png");
-  background-repeat: repeat;
-  text-align: center;
 }

@@ -16,6 +16,12 @@
 @import "../src/pages/form/form";
 @import "../src/pages/main/main";
 
+.mainframe {
+  background-image: url("../img/fon_main.png");
+  background-repeat: repeat;
+  text-align: center;
+}
+
 .proxy_test {
   position: fixed;
   bottom: 0;
