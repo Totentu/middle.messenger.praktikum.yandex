@@ -1,10 +1,7 @@
 ## Техническая информация
 
-Ссылка на прототипы:
-https://www.figma.com/proto/EduXWeAso0ymv9iv5mOGcM/sprint_1?node-id=23%3A46&scaling=min-zoom&page-id=0%3A1
-
-Ссылка на публикацию ветки deploy:
-https://yp-7k-ivan-sprint-1.netlify.app/
+Ссылка на PR Sprint 2:
+https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/13
 
 ## Описание
 
