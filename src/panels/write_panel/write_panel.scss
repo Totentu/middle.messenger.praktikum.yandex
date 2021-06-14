@@ -1,20 +1,7 @@
-%input_view {
-  @extend %text_view;
-
-  padding-left: 10px;
-  text-align: left;
-}
-
 .write_panel {
   @extend %flex-container;
 
   width: calc(100% - 20px);
   grid-area: write;
   align-items: center;
-}
-
-.write_panel__input {
-  @extend %input_view;
-
-  width: calc(100% - 100px);
 }
