@@ -5,6 +5,7 @@ import {template as MesPanelTemplate} from './mes_panel.tmpl';
 
 interface mesPanelData {
   messages: Record<string, string>[];
+  [index: string]:any;
 }
 
 export default class MesPanel extends Block {
@@ -17,7 +18,7 @@ export default class MesPanel extends Block {
       outData.messages.push({mes_node: `<node id=${item.tempID}></node>`});
     }
     super('div', outData);
-    this._element.className = 'mes_panel';
+    this.element.className = 'mes_panel';
   }
 
   render (): HTMLElement {

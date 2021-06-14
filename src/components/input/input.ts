@@ -2,7 +2,7 @@ import Block from '../../common/block';
 // import {template as inputTemplate} from './input.tmpl';
 
 interface inputData {
-  events?: Record<string, (...args) => void>;
+  events?: Record<string, (...args: any[]) => void>;
   className: string;
   value: string;
   id: string;
@@ -14,18 +14,18 @@ interface inputData {
 export default class Input extends Block {
   constructor (props: inputData) {
     super('input', props);
-    this._element.className = props.className;
-    this._element.value = props.value;
-    this._element.id = props.id;
-    if (props.disabled === true) this._element.disabled = true;
+    const inputElement: any = this._element;
+    inputElement.className = props.className;
+    inputElement.value = props.value;
+    inputElement.id = props.id;
+    if (props['disabled'] === true) inputElement.disabled = true;
   }
 
   render (): HTMLElement {
-    for (const key in this.props) {
-      if (Object.hasOwnProperty.call(this.props, key)) {
-        this._element[key] = this.props[key];
-      }
-    }
+    const inputElement: any = this._element;
+    inputElement.className = this.props.className;
+    inputElement.value = this.props.value;
+    inputElement.id = this.props.id;
 
     // input не содержит внутренних узлов, в связи с этим возвращается пустой элемент
     return document.createElement('text');

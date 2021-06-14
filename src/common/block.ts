@@ -1,6 +1,6 @@
 import EventBus from './event_bus';
 
-type Callback = (...args) => void;
+type Callback = (...args: any[]) => void;
 type property = string | number | boolean | HTMLElement | Callback | Record<string, string | number | boolean | HTMLElement | Callback>;
 
 export default class Block {
@@ -11,9 +11,9 @@ export default class Block {
       FLOW_CDU: 'flow:component-did-update'
     };
 
-    _element = null;
-    _meta = null;
-    props: ProxyConstructor;
+    _element: any;
+    _meta: {tagName: string, props: any};
+    props: any;
     eventBus: () => EventBus;
 
     /** JSDoc
@@ -22,14 +22,13 @@ export default class Block {
      *
      * @returns {void}
      */
-    constructor (tagName = 'div', props = {}) {
+    constructor (tagName = 'div', props: any = {}) {
       const eventBus = new EventBus();
       this._meta = {
         tagName,
         props
       };
-      const key = 'events';
-      if (typeof (props[key]) === 'undefined') props[key] = {};
+      if (typeof (props.events) === 'undefined') props.events = {};
       this.props = this._makePropsProxy(props);
 
       this.eventBus = () => eventBus;
@@ -88,7 +87,7 @@ export default class Block {
       this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, nextProps);
     };
 
-    get element (): HTMLElement {
+    get element (): any {
       return this._element;
     }
 
@@ -117,7 +116,7 @@ export default class Block {
       }
       if (block.childNodes) {
         for (let i = 0; i < block.childNodes.length; i++) {
-          if (block.firstChild.parentNode === block.childNodes[i].parentNode) {
+          if (block.firstChild?.parentNode === block.childNodes[i].parentNode) {
             this._element.append(block.childNodes[i]);
           }
         }
@@ -135,14 +134,14 @@ export default class Block {
 
     _makePropsProxy (props: Record<string, property>): ProxyConstructor {
       const handler = {
-        get (target, prop): property {
+        get (target: any, prop: any): property {
           if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
           const value = target[prop];
           return typeof value === 'function' ? value.bind(target) : value;
         },
-        set (target, prop, value): boolean {
+        set (target: any, prop: any, value: any): boolean {
           if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
@@ -150,7 +149,7 @@ export default class Block {
 
           return true;
         },
-        deleteProperty (target, prop): boolean {
+        deleteProperty (target: any, prop: any): boolean {
           if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
@@ -162,7 +161,6 @@ export default class Block {
     }
 
     _createDocumentElement (tagName: string): HTMLElement {
-      // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
       return document.createElement(tagName);
     }
 

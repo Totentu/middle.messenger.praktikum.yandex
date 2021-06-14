@@ -62,7 +62,7 @@ export default class PageMain extends Block {
       })
     };
     super('div', outData);
-    this._element.className = 'main';
+    this.element.className = 'main';
   }
 
   render (): HTMLElement {

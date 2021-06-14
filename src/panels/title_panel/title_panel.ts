@@ -11,15 +11,16 @@ interface titlePanelData {
 export default class TitlePanel extends Block {
   constructor (inData: titlePanelData) {
     super('div', inData);
-    this._element.className = 'title_panel';
+    this.element.className = 'title_panel';
   }
 
   render (): HTMLElement {
     const nodeStructure = ConstructDomTree(TitlePanelTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.title_panel__photo');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
-
+    if (photoNode !== null) {
+      photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
+    }
     return nodeStructure.body;
   }
 }

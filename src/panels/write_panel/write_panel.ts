@@ -13,6 +13,7 @@ interface writePanelData {
   sendBtnImg?: BtnImg;
   writeValue: string;
   fields?: Record<string, string | RegExp>[];
+  [index: string]:any;
 }
 
 export default class WritePanel extends Block {
@@ -27,22 +28,22 @@ export default class WritePanel extends Block {
         {regControl: VALIDATE_FORM.message.regControl, errMes: VALIDATE_FORM.message.errMes, field_name: 'writeInput'}
       ]
     };
-    outData.writeInputControl.hide();
-    outData.writeInput.setProps({
+    outData?.writeInputControl?.hide();
+    outData?.writeInput?.setProps({
       events: {
         focus: () => { GetCorrectValue.bind(outData.writeInput)(VALIDATE_FORM.message.regControl, VALIDATE_FORM.message.errMes); },
         blur: () => { setTimeout(() => GetCorrectValue.bind(outData.writeInput)(VALIDATE_FORM.message.regControl, VALIDATE_FORM.message.errMes), 200); },
-        change: () => { outData.writeInput.setProps({value: outData.writeInput._element.value}); }
+        change: () => { outData?.writeInput?.setProps({value: outData.writeInput.element.value}); }
       },
       control: outData['writeInput' + 'Control']
     });
     super('div', outData);
-    outData.sendBtnImg.setProps({
+    outData.sendBtnImg?.setProps({
       events: {
         click: () => { SubmitControl.bind(outData.sendBtnImg)(this); }
       }
     });
-    this._element.className = 'write_panel';
+    this.element.className = 'write_panel';
   }
 
   render (): HTMLElement {

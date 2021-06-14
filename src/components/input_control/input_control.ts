@@ -11,9 +11,9 @@ interface inputControlData {
 export default class InputControl extends Block {
   constructor (props: inputControlData) {
     super('div', props);
-    this._element.className = props.className;
-    this._element.textContent = props.textContent;
-    this._element.id = props.id;
+    this.element.className = props.className;
+    this.element.textContent = props.textContent;
+    this.element.id = props.id;
   }
 
   render (): HTMLElement {

@@ -10,7 +10,8 @@ interface formData {
   fields: Record<string, string>[];
   buttons: Record<string, string>[];
   disabled: boolean;
-  events?: Record<string, (...args) => void>;
+  events?: Record<string, (...args: any[]) => void>;
+  [index: string]:any
 }
 
 export default class PageLogin extends Block {
@@ -46,7 +47,7 @@ export default class PageLogin extends Block {
       outData.buttons.push({button_title: item.button_title, button_node: `<node id=${item.button_name}></node>`});
     }
     super('div', outData);
-    this._element.className = 'form';
+    this.element.className = 'form';
     this.setProps({
       events: {
         submit: () => { SubmitControl.bind(this)(); }

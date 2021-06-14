@@ -5,6 +5,7 @@ import {template as NavPanelTemplate} from './nav_panel.tmpl';
 
 interface navPanelData {
   hrefs: Record<string, string>[];
+  [index: string]:any;
 }
 
 export default class NavPanel extends Block {
@@ -17,7 +18,7 @@ export default class NavPanel extends Block {
       outData.hrefs.push({href_node: `<node id=${item.tempID}></node>`});
     }
     super('nav', outData);
-    this._element.className = 'nav_panel';
+    this.element.className = 'nav_panel';
   }
 
   render (): HTMLElement {

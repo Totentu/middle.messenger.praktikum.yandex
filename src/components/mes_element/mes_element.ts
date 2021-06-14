@@ -13,10 +13,10 @@ export default class MesElement extends Block {
   constructor (inData: mesElementData) {
     super('div', inData);
     if (inData.author === '') {
-      this._element.className = 'mes_element__yours';
+      this.element.className = 'mes_element__yours';
       this.setProps({author: 'Вы'});
     } else {
-      this._element.className = 'mes_element__others';
+      this.element.className = 'mes_element__others';
     }
   }
 

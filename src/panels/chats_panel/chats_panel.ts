@@ -10,6 +10,7 @@ interface chatPanelData {
   searchInput?: Input;
   searchBtnImg?: BtnImg;
   searchValue: string;
+  [index: string]: any;
 }
 
 export default class ChatsPanel extends Block {
@@ -25,7 +26,7 @@ export default class ChatsPanel extends Block {
       outData.chats.push({chat_node: `<node id=${item.tempID}></node>`});
     }
     super('div', outData);
-    this._element.className = 'chats_panel';
+    this.element.className = 'chats_panel';
   }
 
   render (): HTMLElement {

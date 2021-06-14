@@ -1,7 +1,9 @@
 import Block from 'block';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
 
-function ConstructDomTree (Template: string, Properties: ProxyConstructor): Document {
+function ConstructDomTree (Template: string, Properties: any): Document {
   const template = Handlebars.compile(Template);
 
   const HTMLString = template(Properties);
@@ -11,7 +13,9 @@ function ConstructDomTree (Template: string, Properties: ProxyConstructor): Docu
   // Специальный механизм, позволяющий в шаблон добавлять "псевдо-теги" node для включения в DOM-дерево живые компоненты
   const nodes = nodeStructure.getElementsByTagName('node');
   for (let i = nodes.length - 1; i >= 0; i--) {
-    if (typeof (Properties[nodes[i].id]) === 'object') nodes[i].parentNode.insertBefore((<Block>Properties[nodes[i].id])._element, nodes[i]);
+    if (typeof (Properties[nodes[i].id]) === 'object') {
+      nodes[i]?.parentNode?.insertBefore((<Block>Properties[nodes[i].id]).element, nodes[i]);
+    }
     nodes[i].remove();
   }
 

@@ -12,7 +12,7 @@ interface buttonData {
 export default class Button extends Block {
   constructor (props: buttonData) {
     super('button', props);
-    this._element.className = props.class;
+    this.element.className = props.class;
   }
 
   render (): HTMLElement {

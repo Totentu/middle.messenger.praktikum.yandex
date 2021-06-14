@@ -24,7 +24,9 @@ export default class ButImg extends Block {
     const nodeStructure = ConstructDomTree(butImgTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.form__but_img');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props['src']})`);
+    if (photoNode !== null) {
+      photoNode.setAttribute('style', `background-image: url(img/${this.props['src']})`);
+    }
 
     return nodeStructure.body;
   }

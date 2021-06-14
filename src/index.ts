@@ -5,11 +5,11 @@ import {VALIDATE_FORM} from './common/constants';
 
 const searchString = new URLSearchParams(window.location.search);
 const currentTemplate = searchString.get('template');
-let page;
+let page: string;
 
 currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
 
-let pageData, pageDOM;
+let pageData: any, pageDOM;
 
 switch (page) {
   case '/main.html':
@@ -102,17 +102,18 @@ switch (page) {
     break;
 }
 
-document.querySelector('#root').append(pageDOM._element);
+document.querySelector('#root')?.append(pageDOM.element);
 
 // Тестирование работы запросов
-document.querySelector('#proxy_test').textContent = 'Отправка запроса через 1 секунду.';
+const divTest = document.querySelector('#proxy_test');
+if (divTest !== null) divTest.textContent = 'Отправка запроса через 1 секунду.';
 const HTTP = new HTTPTransport();
 setTimeout(() => {
   HTTP.get(page
   ).then(
-    (data) => {
-      document.querySelector('#proxy_test').textContent += '\r\nОтвет получен. Статус : ' + data['status'];
-      document.querySelector('#proxy_test').textContent += '\r\n' + data['responseText'];
+    (data: XMLHttpRequest) => {
+      if (divTest !== null) divTest.textContent += '\r\nОтвет получен. Статус : ' + data['status'];
+      if (divTest !== null) divTest.textContent += '\r\n' + data['responseText'];
     }
   );
 }, 1000);

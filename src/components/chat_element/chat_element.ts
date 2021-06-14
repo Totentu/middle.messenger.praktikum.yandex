@@ -14,15 +14,16 @@ interface chatElementData {
 export default class ChatElement extends Block {
   constructor (inData: chatElementData) {
     super('div', inData);
-    this._element.className = 'chat_element';
+    this.element.className = 'chat_element';
   }
 
   render (): HTMLElement {
     const nodeStructure = ConstructDomTree(ChatElementTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.chat_element__photo');
-    photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
-
+    if (photoNode !== null) {
+      photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
+    }
     return nodeStructure.body;
   }
 }
