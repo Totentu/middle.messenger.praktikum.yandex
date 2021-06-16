@@ -3,7 +3,7 @@ export const template = `
 <node id="searchInput"></node>
 <node id="searchBtnImg"></node>
 </div>
-{{#each chats}} 
+{{#each chatsNodes}} 
     {{{chat_node}}}
 {{/each}} 
 `;

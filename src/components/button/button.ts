@@ -1,8 +1,8 @@
 import Block from '../../common/block';
-import {ConstructDomTree} from '../../common/utils';
+import {constructDomTree} from '../../common/utils';
 import {template as buttonTemplate} from './button.tmpl';
 
-interface buttonData {
+interface IButton {
   href: string;
   text: string;
   class: string;
@@ -10,13 +10,13 @@ interface buttonData {
 }
 
 export default class Button extends Block {
-  constructor (props: buttonData) {
+  constructor (props: IButton) {
     super('button', props);
     this.element.className = props.class;
   }
 
   render (): HTMLElement {
-    const nodeStructure = ConstructDomTree(buttonTemplate, this.props);
+    const nodeStructure = constructDomTree(buttonTemplate, this.props);
 
     return nodeStructure.body;
   }

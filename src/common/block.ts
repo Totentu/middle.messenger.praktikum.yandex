@@ -1,7 +1,8 @@
 import EventBus from './event_bus';
 
-type Callback = (...args: any[]) => void;
-type property = string | number | boolean | HTMLElement | Callback | Record<string, string | number | boolean | HTMLElement | Callback>;
+type TPropertyValue = any;
+type TProps = Record<string, TPropertyValue>;
+type TElement = HTMLElement | HTMLInputElement | HTMLButtonElement | HTMLBodyElement | HTMLDivElement;
 
 export default class Block {
     static EVENTS = {
@@ -11,18 +12,12 @@ export default class Block {
       FLOW_CDU: 'flow:component-did-update'
     };
 
-    _element: any;
-    _meta: {tagName: string, props: any};
-    props: any;
+    _element: TElement;
+    _meta: {tagName: string, props: TProps};
+    props: TProps;
     eventBus: () => EventBus;
 
-    /** JSDoc
-     * @param {string} tagName
-     * @param {Object} props
-     *
-     * @returns {void}
-     */
-    constructor (tagName = 'div', props: any = {}) {
+    constructor (tagName = 'div', props: TProps = {}) {
       const eventBus = new EventBus();
       this._meta = {
         tagName,
@@ -58,25 +53,35 @@ export default class Block {
       this.componentDidMount();
     }
 
-    // Может переопределять пользователь, необязательно трогать
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     componentDidMount (): void {}
 
-    _componentDidUpdate (oldProps: ProxyConstructor, newProps: ProxyConstructor): void {
+    _componentDidUpdate (oldProps: TProps, newProps: TProps): void {
       const response = this.componentDidUpdate(oldProps, newProps);
       if (response) this._render();
     }
 
-    // Может переопределять пользователь, необязательно трогать
-    componentDidUpdate (oldProps: ProxyConstructor, newProps: ProxyConstructor): boolean {
-      return (JSON.stringify(oldProps) !== JSON.stringify(newProps));
+    componentDidUpdate (oldProps: TProps, newProps: TProps): boolean {
+      if (Object.keys(oldProps).length !== Object.keys(newProps).length) {
+        return true;
+      }
+      for (const key in oldProps) {
+        if (Object.hasOwnProperty.call(oldProps, key) && Object.hasOwnProperty.call(newProps, key)) {
+          if (oldProps[key] !== newProps[key]) {
+            return true;
+          }
+        } else {
+          return true;
+        }
+      }
+      return false;
     }
 
-    setProps = (nextProps: Record<string, property>) : void => {
+    setProps = (nextProps: TProps) : void => {
       if (!nextProps) {
         return;
       }
-      const oldProps: Record<string, property> = {};
+      const oldProps: TProps = {};
       for (const key in this.props) {
         if (Object.hasOwnProperty.call(this.props, key)) {
           oldProps[key] = this.props[key];
@@ -87,7 +92,7 @@ export default class Block {
       this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, nextProps);
     };
 
-    get element (): any {
+    get element (): TElement {
       return this._element;
     }
 
@@ -132,25 +137,25 @@ export default class Block {
       return this.element;
     }
 
-    _makePropsProxy (props: Record<string, property>): ProxyConstructor {
+    _makePropsProxy (props: TProps): TProps {
       const handler = {
-        get (target: any, prop: any): property {
-          if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
+        get (target: TPropertyValue, prop: string): TPropertyValue {
+          if (prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
           const value = target[prop];
           return typeof value === 'function' ? value.bind(target) : value;
         },
-        set (target: any, prop: any, value: any): boolean {
-          if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
+        set (target: TPropertyValue, prop: string, value: TPropertyValue): boolean {
+          if (prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
           target[prop] = value;
 
           return true;
         },
-        deleteProperty (target: any, prop: any): boolean {
-          if (typeof (prop) === 'string' && prop.indexOf('_') === 0) {
+        deleteProperty (target: TPropertyValue, prop: string): boolean {
+          if (prop.indexOf('_') === 0) {
             throw new Error('нет доступа');
           }
           delete target[prop];

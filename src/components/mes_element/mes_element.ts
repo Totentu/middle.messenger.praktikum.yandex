@@ -1,8 +1,8 @@
 import Block from '../../common/block';
-import {ConstructDomTree} from '../../common/utils';
+import {constructDomTree} from '../../common/utils';
 import {template as MesElementTemplate} from './mes_element.tmpl';
 
-interface mesElementData {
+interface IMesElement {
   author: string;
   text: string;
   time: string;
@@ -10,7 +10,7 @@ interface mesElementData {
 }
 
 export default class MesElement extends Block {
-  constructor (inData: mesElementData) {
+  constructor (inData: IMesElement) {
     super('div', inData);
     if (inData.author === '') {
       this.element.className = 'mes_element__yours';
@@ -21,7 +21,7 @@ export default class MesElement extends Block {
   }
 
   render (): HTMLElement {
-    const nodeStructure = ConstructDomTree(MesElementTemplate, this.props);
+    const nodeStructure = constructDomTree(MesElementTemplate, this.props);
 
     return nodeStructure.body;
   }

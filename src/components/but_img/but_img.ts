@@ -1,15 +1,15 @@
 import Block from '../../common/block';
-import {ConstructDomTree} from '../../common/utils';
+import {constructDomTree} from '../../common/utils';
 import {template as butImgTemplate} from './but_img.tmpl';
 
-interface btnImgData {
+interface IButImg {
   href: string;
   src: string;
   type?: string;
 }
 
 export default class ButImg extends Block {
-  constructor (props: btnImgData) {
+  constructor (props: IButImg) {
     super('div', props);
     if (props.type !== 'submit' && typeof (props.href) !== 'undefined') {
       this.setProps({
@@ -21,7 +21,7 @@ export default class ButImg extends Block {
   }
 
   render (): HTMLElement {
-    const nodeStructure = ConstructDomTree(butImgTemplate, this.props);
+    const nodeStructure = constructDomTree(butImgTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.form__but_img');
     if (photoNode !== null) {

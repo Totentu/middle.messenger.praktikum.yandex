@@ -3,7 +3,10 @@ import Block from 'block';
 // @ts-ignore
 import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
 
-function ConstructDomTree (Template: string, Properties: any): Document {
+type TPropertyValue = any;
+type TProps = Record<string, TPropertyValue>;
+
+function constructDomTree (Template: string, Properties: TProps): Document {
   const template = Handlebars.compile(Template);
 
   const HTMLString = template(Properties);
@@ -15,6 +18,10 @@ function ConstructDomTree (Template: string, Properties: any): Document {
   for (let i = nodes.length - 1; i >= 0; i--) {
     if (typeof (Properties[nodes[i].id]) === 'object') {
       nodes[i]?.parentNode?.insertBefore((<Block>Properties[nodes[i].id]).element, nodes[i]);
+    } else if (typeof (Properties?.nodeElements) === 'object') {
+      if (typeof (Properties?.nodeElements[nodes[i].id]) === 'object') {
+        nodes[i]?.parentNode?.insertBefore((<Block>Properties?.nodeElements[nodes[i].id]).element, nodes[i]);
+      }
     }
     nodes[i].remove();
   }
@@ -22,7 +29,7 @@ function ConstructDomTree (Template: string, Properties: any): Document {
   return nodeStructure;
 }
 
-function GetCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
+function getCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
   if (typeof (inRegExp) === 'undefined') return true;
   const res = inRegExp.test(this.element.value);
   if (res) {
@@ -35,11 +42,11 @@ function GetCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
   return res;
 }
 
-function SubmitControl (inForm: Block): void {
+function submitControl (inForm: Block): void {
   if (this.props.type === 'submit') {
     let flagReady = true;
-    for (const node of inForm.props['fields']) {
-      const readyField = GetCorrectValue.bind(inForm.props[node.field_name])(node.regControl, node.errMes);
+    for (const node of inForm.props['fieldsNodes']) {
+      const readyField = getCorrectValue.bind(inForm.props.nodeElements[node.field_name])(node.regControl, node.errMes);
       flagReady = flagReady && readyField;
     }
     if (flagReady) {
@@ -50,4 +57,4 @@ function SubmitControl (inForm: Block): void {
   }
 }
 
-export {ConstructDomTree, GetCorrectValue, SubmitControl};
+export {constructDomTree, getCorrectValue, submitControl};

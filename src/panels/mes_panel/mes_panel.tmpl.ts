@@ -1,5 +1,5 @@
 export const template = `
-{{#each messages}} 
+{{#each messagesNodes}} 
     {{{mes_node}}}
 {{/each}} 
 `;

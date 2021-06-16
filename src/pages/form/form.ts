@@ -2,61 +2,71 @@ import Button from '../../components/button/index';
 import Input from '../../components/input/index';
 import InputControl from '../../components/input_control/index';
 import Block from '../../common/block';
-import {ConstructDomTree, GetCorrectValue, SubmitControl} from '../../common/utils';
-import {template as pageLoginTemplate} from './form.tmpl';
+import {constructDomTree, getCorrectValue, submitControl} from '../../common/utils';
+import {template as pageFormTemplate} from './form.tmpl';
 
-interface formData {
+interface IPageForm {
   title: string;
-  fields: Record<string, string>[];
+  fields: Record<string, string | RegExp>[];
   buttons: Record<string, string>[];
   disabled: boolean;
-  events?: Record<string, (...args: any[]) => void>;
-  [index: string]:any
 }
 
-export default class PageLogin extends Block {
-  constructor (inData: formData) {
-    const outData: formData = {
-      title: inData.title,
-      disabled: inData.disabled,
-      fields: [],
-      buttons: [],
-      events: {}
-    };
-    for (const item of inData.fields) {
-      outData[item.field_name] = new Input({className: 'form__input', id: item.field_name, value: item.field_value, disabled: inData.disabled});
-      outData[`${item.field_name}_control`] = new InputControl({className: 'form__input_control', textContent: 'проверка...', id: `${item.field_name}_control`});
-      outData[`${item.field_name}_control`].hide();
-      outData[item.field_name].setProps({
+export default class PageForm extends Block {
+  constructor (props: IPageForm) {
+    super('div', props);
+    this.element.className = 'form';
+    this.props.nodeElements = {};
+    this.initButtons();
+    this.initFields();
+    this._render();
+  }
+
+  initButtons (): void {
+    const ne = this.props.nodeElements;
+    this.props.buttonsNodes = [];
+    const {buttons} = this.props;
+    buttons.forEach((item: Record<string, string>) => {
+      const id = item.button_name;
+      ne[id] = new Button({class: 'form__button', href: item.button_href, text: item.button_title, type: item.type});
+      ne[id].setProps({
         events: {
-          focus: () => { GetCorrectValue.bind(outData[item.field_name])(item.regControl, item.errMes); },
-          blur: () => { setTimeout(() => GetCorrectValue.bind(outData[item.field_name])(item.regControl, item.errMes), 200); },
-          change: () => { outData[item.field_name].setProps({value: outData[item.field_name].element.value}); }
-        },
-        control: outData[`${item.field_name}_control`]
-      });
-      outData.fields.push({regControl: item.regControl, errMes: item.errMes, field_name: item.field_name, field_title: item.field_title, input_node: `<node id=${item.field_name}></node>`, input_error: `<node id=${item.field_name}_control></node>`});
-    }
-    for (const item of inData.buttons) {
-      outData[item.button_name] = new Button({class: 'form__button', href: item.button_href, text: item.button_title, type: item.type});
-      outData[item.button_name].setProps({
-        events: {
-          click: () => { SubmitControl.bind(outData[item.button_name])(this); }
+          click: () => { submitControl.bind(ne[id])(this); }
         }
       });
-      outData.buttons.push({button_title: item.button_title, button_node: `<node id=${item.button_name}></node>`});
+      this.props.buttonsNodes.push({button_title: item.button_title, button_node: `<node id=${id}></node>`});
     }
-    super('div', outData);
-    this.element.className = 'form';
-    this.setProps({
-      events: {
-        submit: () => { SubmitControl.bind(this)(); }
-      }
+
+    );
+  }
+
+  initFields (): void {
+    const ne = this.props.nodeElements;
+    this.props.fieldsNodes = [];
+    const {fields} = this.props;
+    fields.forEach((item: Record<string, string | RegExp>) => {
+      const id = <string>item.field_name;
+
+      // Создаем поле, для отображения ошибок заполнения основного поля
+      ne[`${id}_control`] = new InputControl({className: 'form__input_control', textContent: 'проверка...', id: `${id}_control`});
+      ne[`${id}_control`].hide();
+
+      // Создаем основное поле для ввода информации
+      ne[id] = new Input({className: 'form__input', id: id, value: <string>item.field_value, disabled: this.props.disabled});
+      ne[id].setProps({
+        events: {
+          focus: () => { getCorrectValue.bind(ne[id])(item.regControl, item.errMes); },
+          blur: () => { setTimeout(() => getCorrectValue.bind(ne[id])(item.regControl, item.errMes), 200); },
+          change: () => { ne[id].setProps({value: ne[id].element.value}); }
+        },
+        control: <Input> ne[`${id}_control`]
+      });
+      this.props.fieldsNodes.push({regControl: item.regControl, errMes: item.errMes, field_name: id, field_title: item.field_title, input_node: `<node id=${id}></node>`, input_error: `<node id=${id}_control></node>`});
     });
   }
 
   render (): HTMLElement {
-    const nodeStructure = ConstructDomTree(pageLoginTemplate, this.props);
+    const nodeStructure = constructDomTree(pageFormTemplate, this.props);
 
     return nodeStructure.body;
   }

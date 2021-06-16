@@ -1,5 +1,5 @@
 export const template = `
-{{#each hrefs}} 
+{{#each hrefsNodes}} 
     {{{href_node}}}
 {{/each}} 
 `;

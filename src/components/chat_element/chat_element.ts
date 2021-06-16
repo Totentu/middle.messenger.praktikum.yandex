@@ -1,8 +1,8 @@
 import Block from '../../common/block';
-import {ConstructDomTree} from '../../common/utils';
+import {constructDomTree} from '../../common/utils';
 import {template as ChatElementTemplate} from './chat_element.tmpl';
 
-interface chatElementData {
+interface IChatElement {
   title: string;
   text: string;
   time: string;
@@ -12,13 +12,13 @@ interface chatElementData {
 }
 
 export default class ChatElement extends Block {
-  constructor (inData: chatElementData) {
-    super('div', inData);
+  constructor (props: IChatElement) {
+    super('div', props);
     this.element.className = 'chat_element';
   }
 
   render (): HTMLElement {
-    const nodeStructure = ConstructDomTree(ChatElementTemplate, this.props);
+    const nodeStructure = constructDomTree(ChatElementTemplate, this.props);
 
     const photoNode = nodeStructure.querySelector('div.chat_element__photo');
     if (photoNode !== null) {
