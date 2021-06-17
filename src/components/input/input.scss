@@ -1,27 +1,25 @@
-@import "../../../static/global";
-
-%input_view
-{
+%input_view {
   @extend %text_view;
+
   padding-left: 10px;
   text-align: left;
 }
 
-.tableframe_input
-{
+.form__input {
   @extend %input_view;
-  width: 300px;
-}
 
-.toppanel_input
-{
-  @extend %input_view;
   width: 200px;
 }
 
-.writepanel_input
-{
+.chats_panel__input {
   @extend %input_view;
+
+  width: 190px;
+}
+
+.write_panel__input {
+  @extend %input_view;
+
   width: calc(100% - 120px);
   float: left;
   margin-right: 10px;

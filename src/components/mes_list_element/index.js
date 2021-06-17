@@ -1,1 +1,0 @@
-export {template as mes_list_elementTemplate} from './mes_list_element.tmpl';

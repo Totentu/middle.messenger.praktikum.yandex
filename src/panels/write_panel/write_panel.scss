@@ -1,0 +1,7 @@
+.write_panel {
+  @extend %flex-container;
+
+  width: calc(100% - 20px);
+  grid-area: write;
+  align-items: center;
+}

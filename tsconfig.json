@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true
+  },
+  "files" :  [
+    "./src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "node"
+  ]
+}
+

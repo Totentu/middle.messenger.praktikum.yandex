@@ -1,0 +1,8 @@
+.mes_panel {
+  @extend %flex-container;
+
+  grid-area: mes;
+  align-content: flex-start;
+  justify-content: space-around;
+  overflow: auto;
+}

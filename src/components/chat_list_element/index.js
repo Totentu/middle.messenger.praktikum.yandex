@@ -1,1 +1,0 @@
-export {template as chat_list_elementTemplate} from './chat_list_element.tmpl';

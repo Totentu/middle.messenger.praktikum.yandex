@@ -1,82 +1,33 @@
-$whole_font_family:    Courier New;
+$whole_font_family:    courier new, sans-serif;
 $whole_font_size:      18px;
-$left_panel_width:     310px;
 
-$circle_size: (small: 20px, medium: 50px, large: 150px);
-
-@each $circle, $size in $circle_size {
-  %circle_form_#{$circle}
-  {
-    width: $size;
-    height: $size;
-    border-radius: $size;
-    background-size: cover;
-    display: inline-block;
-    box-sizing: border-box;
-  }
+%flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  font-family: $whole_font_family;
+  font-size: $whole_font_size;
+  padding: 10px;
 }
 
-%text_view
-{
+%text_view {
   border: 0;
   font-family: $whole_font_family;
   font-size: $whole_font_size;
   height: 25px;
-  display: inline-block;
   border-radius: 10px;
 }
 
-%frame_view
-{
-  background:   RGBA(255,255,255,0.2);
-  box-sizing:   border-box;
-  font-family:  $whole_font_family;
-  font-size:    $whole_font_size;
-  padding:      10px;
+.flex_element_break {
+  flex-basis: 100%;
+  height: 0;
 }
 
-%panel_view
-{
-  @extend %frame_view;
-  position: fixed;
-  left: 0;
-  width: $left_panel_width;
-}
-
-.tableframe
-{
-  @extend %frame_view;
-  text-align: center;
-  margin: auto;
-  width: 520px;
-  border-spacing: 10px;
-}
-
-%big_text_view
-{
+%big_text_view {
   font-family: $whole_font_family;
   font-size: $whole_font_size*1.5;
   font-weight: bold;
   text-align: center;
   padding-bottom: 30px;
-}
-
-.tableframe_message
-{
-  @extend %big_text_view;
-}
-
-.mainframe
-{
-  background-image: url("/static/img/fon_main.png");
-  background-repeat: repeat;
-  text-align: center;
-}
-
-%mainframe_href
-{
-  @extend %big_text_view;
-  color: #5463B4;
-  display: inline-block;
-  cursor: pointer;
 }

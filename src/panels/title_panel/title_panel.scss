@@ -1,0 +1,28 @@
+.title_panel {
+  @extend %flex-container;
+
+  width: calc(100% - 20px);
+  grid-area: title;
+  align-items: center;
+}
+
+.title_panel__photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.title_panel__data {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title_panel__title {
+  font-weight: bold;
+}
+
+.title_panel__time {
+  font-size: 14px;
+}
