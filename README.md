@@ -1,7 +1,7 @@
 ## Описание
 
 Сылка на PR Sprint_3:
-https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/14
+https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/16
 
 Проект Sprint_2. Второй этап создания прототипа чата. Данный проект является учебным проектом YP.
 
