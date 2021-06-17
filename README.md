@@ -1,8 +1,5 @@
 ## Описание
 
-Сылка на PR Sprint_3:
-https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/14
-
 Проект Sprint_2. Второй этап создания прототипа чата. Данный проект является учебным проектом YP.
 
 Демонстрация работы данного прототипа: https://yp-7k-ivan-sprint-2.netlify.app/
@@ -55,3 +52,18 @@ https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/14
 - В ТЗ не было указано, с какой целью необходимо встроить в проект класс для работы с запросами (httptransport.ts). В целях
   демонстрации его работы в index.ts спустя 1 секунду выполняется запрос к статическому содержанию текущей страницы, 
   ответ которого помещается во временный div класса proxy_test.
+
+Особенности контроля корректности кода файлов:
+- ESlint. "semi": ["error", "always"], "dot-notation": "off" - это вопрос привычки, наставник сказал, что я могу 
+  настраивать это так, как мне привычно.
+  
+- StyleLit. "at-rule-no-unknown": null - Lint не понимает импортируемых из других файлов фрагментов. Например:
+        @import "../../../static/global";
+        
+        %input_view {
+            @extend %text_view;
+        
+            padding-left: 10px;
+            text-align: left;
+        }
+  В global есть фрагмент %text_view, однако линт не видит этого и выдает ошибки. Пришлось отключить правило.
