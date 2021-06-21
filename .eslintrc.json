@@ -179,12 +179,8 @@
       "allowTernary": true,
       "allowTaggedTemplates": true
     }],
-    "no-unused-vars": ["error", {
-      "args": "none",
-      "caughtErrors": "none",
-      "ignoreRestSiblings": true,
-      "vars": "all"
-    }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": false }],
     "no-useless-call": "error",
     "no-useless-computed-key": "error",
