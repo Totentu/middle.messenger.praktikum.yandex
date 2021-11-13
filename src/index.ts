@@ -1,6 +1,3 @@
-console.log(12);
-
-/*
 import Router from './common/router';
 import HTTPTransport from './common/httptransport';
 
@@ -16,6 +13,10 @@ import {RegistryDataTmp} from './pages/registry.form_data';
 import {LoginDataTmp} from './pages/login.form_data';
 import {AddChatTmp} from './pages/add_chat.form_data';
 import {DelChatTmp} from './pages/delete_chat.form_data';
+
+console.log(12);
+
+/*
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
