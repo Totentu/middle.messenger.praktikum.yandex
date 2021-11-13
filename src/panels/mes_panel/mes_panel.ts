@@ -1,7 +1,7 @@
 import MesElement from '../../components/mes_element/index';
 import Block from '../../common/block';
 import {template as MesPanelTemplate} from './mes_panel.tmpl';
-import {router} from '../../index';
+// import {router} from '../../index';
 
 interface IMesPanel {
   messages: Record<string, string>[];
@@ -18,7 +18,7 @@ export default class MesPanel extends Block {
     this.initMessages();
     this._render();
 
-    router.eventBus.on('UpdateMessages', this.update.bind(this));
+    window.router.eventBus.on('UpdateMessages', this.update.bind(this));
   }
 
   initMessages (): void {

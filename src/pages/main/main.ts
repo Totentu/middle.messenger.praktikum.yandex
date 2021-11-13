@@ -8,7 +8,7 @@ import {WritePanel} from '../../panels/write_panel/index';
 import Block from '../../common/block';
 import {template as pageMainTemplate} from './main.tmpl';
 import HTTPTransport from '../../common/httptransport';
-import {router} from '../../index';
+// import {router} from '../../index';
 
 export default class PageMain extends Block {
   constructor () {
@@ -39,8 +39,8 @@ export default class PageMain extends Block {
           this.props.nodeElements.ChatsPanel.props.chats = JSON.parse(data.responseText);
           this.props.nodeElements.ChatsPanel.initChats();
           this.props.nodeElements.ChatsPanel._render();
-          if (router.selectedChat > 0) {
-            router.eventBus.emit('UpdateUsers', router.selectedChat);
+          if (window.router.selectedChat > 0) {
+              window.router.eventBus.emit('UpdateUsers', router.selectedChat);
           }
         }
       );

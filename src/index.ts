@@ -22,9 +22,9 @@ declare global {
     type TProps = Record<string, TPropertyValue>;
 }
 
-export const router = new Router();
+window.router = new Router();
 
-router
+window.router
   .use('/', PageForm, LoginDataTmp)
   .use('/login', PageForm, LoginDataTmp)
   .use('/main', PageMain, {})
@@ -45,11 +45,11 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
   .then(
     (data: XMLHttpRequest) => {
       if (data.status === 401) {
-        router.go('/login');
+          window.router.go('/login');
       } else {
-        router.currentUser = JSON.parse(data.responseText).id;
-        if (router._currentRoute?._pathname === '/login') {
-          router.go('/main');
+          window.router.currentUser = JSON.parse(data.responseText).id;
+        if (window.router._currentRoute?._pathname === '/login') {
+            window.router.go('/main');
         }
       }
     }

@@ -1,5 +1,5 @@
 import {PageForm} from '../../components/form/index';
-import {router} from '../../index';
+// import {router} from '../../index';
 import HTTPTransport from '../../common/httptransport';
 import {template as pageProfileDataTemplate} from './profile_data.tmpl';
 import Button from '../../components/button/index';
@@ -56,7 +56,7 @@ export default class ProfileData extends PageForm {
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
             console.log('Пользователь не идентифицирован');
-            router.go('/login');
+            window.router.go('/login');
           } else {
             const uData = JSON.parse(data.response);
             this.props.avatar = uData.avatar;
