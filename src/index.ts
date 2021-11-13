@@ -39,9 +39,8 @@ router
   .use('/delete_chat', PageForm, DelChatTmp)
   .use('/err404', PageErr404, {})
   .start();
-
-export {router};
 */
+export {router};
 
 const HTTP = new HTTPTransport();
 const host = 'https://ya-praktikum.tech';
