@@ -1,4 +1,4 @@
-// import Router from './common/router';
+import Router from './common/router';
 import HTTPTransport from './common/httptransport';
 
 import {PageMain} from './pages/main/index';
@@ -24,8 +24,8 @@ declare global {
     type TProps = Record<string, TPropertyValue>;
 }
 
-/*
 const router = new Router();
+/*
 router
   .use('/', PageForm, LoginDataTmp)
   .use('/login', PageForm, LoginDataTmp)
