@@ -22,7 +22,7 @@ declare global {
     type TProps = Record<string, TPropertyValue>;
 }
 
-const router = new Router();
+export const router = new Router();
 
 router
   .use('/', PageForm, LoginDataTmp)
@@ -54,5 +54,3 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
       }
     }
   );
-
-export {router};
