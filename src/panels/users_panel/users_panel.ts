@@ -20,7 +20,7 @@ export default class UsersPanel extends Block {
     this.props.hrefsNodes.push({href_node: '<node id="btn_add_user"></node>'});
     this._render();
 
-      window.router.eventBus.on('UpdateUsers', this.update.bind(this));
+    window.router.eventBus.on('UpdateUsers', this.update.bind(this));
   }
 
   initUsers (): void {
@@ -49,9 +49,9 @@ export default class UsersPanel extends Block {
       .then(
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
-              window.router.go('/login');
+            window.router.go('/login');
           } else {
-              window.router.currentToken = JSON.parse(data.responseText).token;
+            window.router.currentToken = JSON.parse(data.responseText).token;
           }
         }
       );

@@ -20,6 +20,8 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type TBlockClass = any;
     type TProps = Record<string, TPropertyValue>;
+    // eslint-disable-next-line no-var
+    var router: Router;
 }
 
 window.router = new Router();
@@ -45,11 +47,11 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
   .then(
     (data: XMLHttpRequest) => {
       if (data.status === 401) {
-          window.router.go('/login');
+        window.router.go('/login');
       } else {
-          window.router.currentUser = JSON.parse(data.responseText).id;
+        window.router.currentUser = JSON.parse(data.responseText).id;
         if (window.router._currentRoute?._pathname === '/login') {
-            window.router.go('/main');
+          window.router.go('/main');
         }
       }
     }
