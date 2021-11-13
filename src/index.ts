@@ -14,8 +14,6 @@ import {LoginDataTmp} from './pages/login.form_data';
 import {AddChatTmp} from './pages/add_chat.form_data';
 import {DelChatTmp} from './pages/delete_chat.form_data';
 
-console.log(12);
-
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type TPropertyValue = any;
@@ -40,8 +38,6 @@ router
   .use('/err404', PageErr404, {})
   .start();
 
-export {router};
-
 const HTTP = new HTTPTransport();
 const host = 'https://ya-praktikum.tech';
 
@@ -58,3 +54,5 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
       }
     }
   );
+
+export {router};
