@@ -1,4 +1,4 @@
-import Router from './common/router';
+// import Router from './common/router';
 import HTTPTransport from './common/httptransport';
 
 import {PageMain} from './pages/main/index';
@@ -16,7 +16,6 @@ import {DelChatTmp} from './pages/delete_chat.form_data';
 
 console.log(12);
 
-
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type TPropertyValue = any;
@@ -25,6 +24,7 @@ declare global {
     type TProps = Record<string, TPropertyValue>;
 }
 
+/*
 const router = new Router();
 router
   .use('/', PageForm, LoginDataTmp)
@@ -41,8 +41,7 @@ router
   .start();
 
 export {router};
-
-/*
+*/
 
 const HTTP = new HTTPTransport();
 const host = 'https://ya-praktikum.tech';
@@ -51,14 +50,14 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
   .then(
     (data: XMLHttpRequest) => {
       if (data.status === 401) {
-        router.go('/login');
+        // router.go('/login');
       } else {
-        router.currentUser = JSON.parse(data.responseText).id;
+        /*
+         router.currentUser = JSON.parse(data.responseText).id;
         if (router._currentRoute?._pathname === '/login') {
           router.go('/main');
         }
+        */
       }
     }
   );
-
-*/
