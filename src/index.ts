@@ -25,7 +25,7 @@ declare global {
 }
 
 const router = new Router();
-/*
+
 router
   .use('/', PageForm, LoginDataTmp)
   .use('/login', PageForm, LoginDataTmp)
@@ -39,7 +39,7 @@ router
   .use('/delete_chat', PageForm, DelChatTmp)
   .use('/err404', PageErr404, {})
   .start();
-*/
+
 export {router};
 
 const HTTP = new HTTPTransport();
@@ -49,14 +49,12 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
   .then(
     (data: XMLHttpRequest) => {
       if (data.status === 401) {
-        // router.go('/login');
+        router.go('/login');
       } else {
-        /*
-         router.currentUser = JSON.parse(data.responseText).id;
+        router.currentUser = JSON.parse(data.responseText).id;
         if (router._currentRoute?._pathname === '/login') {
           router.go('/main');
         }
-        */
       }
     }
   );

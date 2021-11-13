@@ -1,7 +1,7 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "sprint_2",
+  "description": "sprint_3",
   "main": "./dist/index.html",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
