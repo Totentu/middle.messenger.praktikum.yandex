@@ -1,6 +1,6 @@
 import Route from './route';
 import EventBus from './event_bus';
-import {GetCookie} from './utils';
+// import {GetCookie} from './utils';
 import HTTPTransport from './httptransport';
 
 export default class Router {
@@ -24,7 +24,7 @@ export default class Router {
       this.routes = [];
       this.history = window.history;
       this._currentRoute = null;
-      this.lastChat = GetCookie('selectedChat');
+      // this.lastChat = GetCookie('selectedChat');
       if (this.lastChat) this.selectedChat = parseInt(this.lastChat);
       this.eventBus.on('UpdateUsers', this.connect.bind(this));
 
