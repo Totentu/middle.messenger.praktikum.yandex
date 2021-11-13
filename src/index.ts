@@ -16,7 +16,6 @@ import {DelChatTmp} from './pages/delete_chat.form_data';
 
 console.log(12);
 
-/*
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -42,6 +41,8 @@ router
   .start();
 
 export {router};
+
+/*
 
 const HTTP = new HTTPTransport();
 const host = 'https://ya-praktikum.tech';
