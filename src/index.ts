@@ -1,4 +1,4 @@
-console.log(1);
+console.log(12);
 
 /*
 import Router from './common/router';
