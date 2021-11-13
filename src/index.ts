@@ -1,3 +1,6 @@
+console.log(1);
+
+/*
 import Router from './common/router';
 import HTTPTransport from './common/httptransport';
 
@@ -55,3 +58,5 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
       }
     }
   );
+
+*/
