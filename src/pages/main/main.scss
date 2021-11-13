@@ -1,10 +1,10 @@
 .main {
   display: grid;
   grid-template-areas:
-    "nav   title"
-    "chats mes "
-    "chats write";
+    "nav   title title"
+    "chats users mes "
+    "chats users write";
   grid-template-rows: 50px calc(100vh - 200px) 100px;
-  grid-template-columns: 310px calc(100% - 330px);
+  grid-template-columns: 310px 310px calc(100% - 640px);
   gap: 10px;
 }

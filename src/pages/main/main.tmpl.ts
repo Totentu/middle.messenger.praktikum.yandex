@@ -4,4 +4,5 @@ export const template = `
 <node id='ChatsPanel'></node>
 <node id='TitlePanel'></node>
 <node id='WritePanel'></node>
+<node id='UsersPanel'></node>
 `;

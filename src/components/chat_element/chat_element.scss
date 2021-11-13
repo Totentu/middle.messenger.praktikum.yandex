@@ -10,6 +10,28 @@
   }
 }
 
+.chat_element_selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background: rgba(200, 200, 200, 0.8);
+
+  &:hover {
+    background: rgba(200, 200, 255, 0.5);
+  }
+}
+
+.chat_element__delete {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+  padding: 0;
+}
+
 .chat_element__photo {
   width: 50px;
   height: 50px;

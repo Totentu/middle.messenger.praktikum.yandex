@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 enum METHODS { GET = 'GET', POST = 'POST', PUT = 'PUT', DELETE = 'DELETE'}
-type TData = Record<string, string> | Document| FormData| Blob| File| ArrayBuffer;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TData = any;
 
 interface IHTTPOptions {
   headers?: Record<string, string>;
@@ -11,16 +12,17 @@ interface IRequest extends IHTTPOptions {
   method: METHODS;
 }
 
+/*
 function queryStringify (data: Record<string, string>) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
   }
-
   const keys = Object.keys(data);
   return keys.reduce((result, key, index) => {
     return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
   }, '?');
 }
+*/
 
 export default class HTTPTransport {
     get = (url: string, options: IHTTPOptions): Promise<unknown> => {
@@ -45,19 +47,17 @@ export default class HTTPTransport {
       return new Promise(function (resolve, reject) {
         const xhr = new XMLHttpRequest();
         const isGet = method === METHODS.GET;
+        xhr.open(method, url);
 
-        xhr.open(method, (isGet && !!data) ? `${url}${queryStringify(<Record<string, string>>data)}` : url);
+        xhr.setRequestHeader('content-type', 'application/json');
 
         Object.keys(headers).forEach(key => {
           xhr.setRequestHeader(key, headers[key]);
         });
+        xhr.withCredentials = true;
 
         xhr.onload = function () {
-          if (xhr.status === 200) {
-            resolve(xhr);
-          } else {
-            reject(new Error('Произошла ошибка при получении ответа'));
-          }
+          resolve(xhr);
         };
         xhr.onerror = function () {
           reject(new Error('Произошла ошибка при получении ответа'));
@@ -73,7 +73,7 @@ export default class HTTPTransport {
         if (isGet || !data) {
           xhr.send();
         } else {
-          xhr.send(<Document| FormData| Blob| File| ArrayBuffer>data);
+          xhr.send(JSON.stringify(data));
         }
       });
     };

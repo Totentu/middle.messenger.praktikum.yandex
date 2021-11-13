@@ -7,6 +7,7 @@ interface IInput {
   value: string;
   id: string;
   disabled: boolean;
+  type?: string;
   errMes?: string;
   regControl?: RegExp;
   control?: InputControl;
@@ -20,6 +21,7 @@ export default class Input extends Block {
     (<HTMLInputElement> this._element).value = props.value;
     this._element.id = props.id;
     if (props['disabled']) (<HTMLInputElement> this._element).disabled = true;
+    if (props['type']) (<HTMLInputElement> this._element).type = props.type;
   }
 
   render (): HTMLElement {

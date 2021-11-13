@@ -1,7 +1,8 @@
 import EventBus from './event_bus';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
 
-type TPropertyValue = any;
-type TProps = Record<string, TPropertyValue>;
 type TElement = HTMLElement | HTMLInputElement | HTMLButtonElement | HTMLBodyElement | HTMLDivElement;
 
 export default class Block {
@@ -14,15 +15,17 @@ export default class Block {
 
     _element: TElement;
     _meta: {tagName: string, props: TProps};
+    _template: string;
     props: TProps;
     eventBus: () => EventBus;
 
-    constructor (tagName = 'div', props: TProps = {}) {
+    constructor (tagName = 'div', props: TProps = {}, template = '') {
       const eventBus = new EventBus();
       this._meta = {
         tagName,
         props
       };
+      this._template = template;
       if (typeof (props.events) === 'undefined') props.events = {};
       this.props = this._makePropsProxy(props);
 
@@ -119,6 +122,7 @@ export default class Block {
       while (this._element.firstChild) {
         this._element.removeChild(this._element.firstChild);
       }
+
       if (block.childNodes) {
         for (let i = 0; i < block.childNodes.length; i++) {
           if (block.firstChild?.parentNode === block.childNodes[i].parentNode) {
@@ -130,7 +134,8 @@ export default class Block {
     }
 
     render (): HTMLElement {
-      return this._element;
+      const nodeStructure = this.constructDomTree();
+      return nodeStructure.body;
     }
 
     getContent (): HTMLElement {
@@ -151,7 +156,6 @@ export default class Block {
             throw new Error('нет доступа');
           }
           target[prop] = value;
-
           return true;
         },
         deleteProperty (target: TPropertyValue, prop: string): boolean {
@@ -170,10 +174,33 @@ export default class Block {
     }
 
     show (): void {
-      this.element.style.display = 'block';
+      this.element.style.display = 'flex';
     }
 
     hide (): void {
       this.element.style.display = 'none';
+    }
+
+    constructDomTree (): Document {
+      const template = Handlebars.compile(this._template);
+
+      const HTMLString = template(this.props);
+      const parser = new DOMParser();
+      const nodeStructure = parser.parseFromString(HTMLString, 'text/html');
+
+      // Специальный механизм, позволяющий в шаблон добавлять "псевдо-теги" node для включения в DOM-дерево живые компоненты
+      const nodes = nodeStructure.getElementsByTagName('node');
+      for (let i = nodes.length - 1; i >= 0; i--) {
+        if (typeof (this.props[nodes[i].id]) === 'object') {
+          nodes[i]?.parentNode?.insertBefore((<Block> this.props[nodes[i].id]).element, nodes[i]);
+        } else if (typeof (this.props?.nodeElements) === 'object') {
+          if (typeof (this.props?.nodeElements[nodes[i].id]) === 'object') {
+            nodes[i]?.parentNode?.insertBefore((<Block> this.props?.nodeElements[nodes[i].id]).element, nodes[i]);
+          }
+        }
+        nodes[i].remove();
+      }
+
+      return nodeStructure;
     }
 }

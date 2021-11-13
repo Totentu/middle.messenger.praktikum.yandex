@@ -1,5 +1,4 @@
 import Block from '../../common/block';
-import {constructDomTree} from '../../common/utils';
 import {template as TitlePanelTemplate} from './title_panel.tmpl';
 
 interface ITitlePanel {
@@ -10,12 +9,12 @@ interface ITitlePanel {
 
 export default class TitlePanel extends Block {
   constructor (props: ITitlePanel) {
-    super('div', props);
+    super('div', props, TitlePanelTemplate);
     this.element.className = 'title_panel';
   }
 
   render (): HTMLElement {
-    const nodeStructure = constructDomTree(TitlePanelTemplate, this.props);
+    const nodeStructure = this.constructDomTree();
 
     const photoNode = nodeStructure.querySelector('div.title_panel__photo');
     if (photoNode !== null) {

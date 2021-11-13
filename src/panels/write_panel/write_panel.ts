@@ -1,10 +1,11 @@
 import Block from '../../common/block';
-import {constructDomTree, getCorrectValue, submitControl} from '../../common/utils';
+import {getCorrectValue} from '../../common/utils';
 import {template as WritePanelTemplate} from './write_panel.tmpl';
 import Input from '../../components/input/index';
 import InputControl from '../../components/input_control/index';
 import BtnImg from '../../components/but_img/index';
 import {VALIDATE_FORM} from '../../common/constants';
+import {router} from '../../index';
 
 interface IWritePanel {
   writeValue: string;
@@ -12,7 +13,7 @@ interface IWritePanel {
 
 export default class WritePanel extends Block {
   constructor (props: IWritePanel) {
-    super('div', props);
+    super('div', props, WritePanelTemplate);
     this.element.className = 'write_panel';
     this.props.writeValue = props.writeValue;
     this.props.nodeElements = {};
@@ -43,14 +44,16 @@ export default class WritePanel extends Block {
     ne.sendBtnImg = new BtnImg({href: '', src: 'send.png', type: 'submit'});
     ne.sendBtnImg.setProps({
       events: {
-        click: () => { submitControl.bind(ne.sendBtnImg)(this); }
+        click: () => { this.sendmessage(); }
       }
     });
   }
 
-  render (): HTMLElement {
-    const nodeStructure = constructDomTree(WritePanelTemplate, this.props);
-
-    return nodeStructure.body;
+  sendmessage (): void {
+    const mes = <HTMLInputElement>document.getElementById('writeInput');
+    router.socket.send(JSON.stringify({
+      content: mes.value,
+      type: 'message'
+    }));
   }
 }

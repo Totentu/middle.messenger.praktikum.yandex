@@ -1,52 +1,57 @@
-import {PageMain} from './pages/main/index';
-import {PageForm} from './pages/form/index';
+import Router from './common/router';
 import HTTPTransport from './common/httptransport';
-import {ProfileDataTmp} from './pages/profile.tmp';
-import {ProfileChangeDataTmp} from './pages/profile_change.tmp';
-import {PasswordChangeDataTmp} from './pages/password_change.tmp';
-import {RegistryDataTmp} from './pages/registry.tmp';
-import {LoginDataTmp} from './pages/login.tmp';
 
-const searchString = new URLSearchParams(window.location.search);
-const currentTemplate = searchString.get('template');
-let page: string;
+import {PageMain} from './pages/main/index';
+import {PageProfileData} from './pages/profile_data/index';
+import {ChatUserAdd} from './pages/chat_user_add/index';
+import {PageProfileDataChange} from './pages/profile_data_change/index';
+import {PageProfilePassChange} from './pages/profile_pass_change/index';
+import {PageForm} from './components/form/index';
+import {PageErr404} from './pages/err404/index';
 
-currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
-let pageDOM;
+import {RegistryDataTmp} from './pages/registry.form_data';
+import {LoginDataTmp} from './pages/login.form_data';
+import {AddChatTmp} from './pages/add_chat.form_data';
+import {DelChatTmp} from './pages/delete_chat.form_data';
 
-switch (page) {
-  case '/main.html':
-    pageDOM = new PageMain();
-    break;
-  case '/profile.html':
-    pageDOM = new PageForm(ProfileDataTmp);
-    break;
-  case '/profile_change_data.html':
-    pageDOM = new PageForm(ProfileChangeDataTmp);
-    break;
-  case '/profile_change_pass.html':
-    pageDOM = new PageForm(PasswordChangeDataTmp);
-    break;
-  case '/registry.html':
-    pageDOM = new PageForm(RegistryDataTmp);
-    break;
-  default:
-    pageDOM = new PageForm(LoginDataTmp);
-    break;
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type TPropertyValue = any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type TBlockClass = any;
+    type TProps = Record<string, TPropertyValue>;
 }
 
-document.querySelector('#root')?.append(pageDOM.element);
+const router = new Router();
+router
+  .use('/', PageForm, LoginDataTmp)
+  .use('/login', PageForm, LoginDataTmp)
+  .use('/main', PageMain, {})
+  .use('/profile', PageProfileData, {})
+  .use('/profile_change', PageProfileDataChange, {})
+  .use('/password_change', PageProfilePassChange, {})
+  .use('/chat_user_add', ChatUserAdd, {})
+  .use('/registry', PageForm, RegistryDataTmp)
+  .use('/add_chat', PageForm, AddChatTmp)
+  .use('/delete_chat', PageForm, DelChatTmp)
+  .use('/err404', PageErr404, {})
+  .start();
 
-// Тестирование работы запросов
-const divTest = document.querySelector('#proxy_test');
-if (divTest !== null) divTest.textContent = 'Отправка запроса через 1 секунду.';
+export {router};
+
 const HTTP = new HTTPTransport();
-setTimeout(() => {
-  HTTP.get(page, {timeout: 5000}
-  ).then(
+const host = 'https://ya-praktikum.tech';
+
+HTTP.get(`${host}/api/v2/auth/user`, {})
+  .then(
     (data: XMLHttpRequest) => {
-      if (divTest !== null) divTest.textContent += '\r\nОтвет получен. Статус : ' + data['status'];
-      if (divTest !== null) divTest.textContent += '\r\n' + data['responseText'];
+      if (data.status === 401) {
+        router.go('/login');
+      } else {
+        router.currentUser = JSON.parse(data.responseText).id;
+        if (router._currentRoute?._pathname === '/login') {
+          router.go('/main');
+        }
+      }
     }
   );
-}, 1000);

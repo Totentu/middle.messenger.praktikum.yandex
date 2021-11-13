@@ -1,33 +1,6 @@
 import Block from 'block';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
-
-type TPropertyValue = any;
-type TProps = Record<string, TPropertyValue>;
-
-function constructDomTree (Template: string, Properties: TProps): Document {
-  const template = Handlebars.compile(Template);
-
-  const HTMLString = template(Properties);
-  const parser = new DOMParser();
-  const nodeStructure = parser.parseFromString(HTMLString, 'text/html');
-
-  // Специальный механизм, позволяющий в шаблон добавлять "псевдо-теги" node для включения в DOM-дерево живые компоненты
-  const nodes = nodeStructure.getElementsByTagName('node');
-  for (let i = nodes.length - 1; i >= 0; i--) {
-    if (typeof (Properties[nodes[i].id]) === 'object') {
-      nodes[i]?.parentNode?.insertBefore((<Block>Properties[nodes[i].id]).element, nodes[i]);
-    } else if (typeof (Properties?.nodeElements) === 'object') {
-      if (typeof (Properties?.nodeElements[nodes[i].id]) === 'object') {
-        nodes[i]?.parentNode?.insertBefore((<Block>Properties?.nodeElements[nodes[i].id]).element, nodes[i]);
-      }
-    }
-    nodes[i].remove();
-  }
-
-  return nodeStructure;
-}
+import {router} from '../index';
+import HTTPTransport from './httptransport';
 
 function getCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
   if (typeof (inRegExp) === 'undefined') return true;
@@ -42,6 +15,30 @@ function getCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
   return res;
 }
 
+function ExecuteApiSubmit (InBut: Block, InData: TProps) : void {
+  const HTTP = new HTTPTransport();
+  const host = 'https://ya-praktikum.tech';
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  HTTP[InBut.props.apiMethod](`${host}/api/v2${InBut.props.apiKey}`, {
+    data: InData
+  })
+    .then(
+      (data: XMLHttpRequest) => {
+        if (data.status === 200) {
+          router.go(InBut.props.href);
+        } else {
+          if (data.responseText === '{"reason":"User already in system"}') {
+            router.go(InBut.props.href);
+          } else {
+            alert(`${data.status}: ${data.responseText}`);
+          }
+        }
+      }
+    );
+}
+
 function submitControl (inForm: Block): void {
   if (this.props.type === 'submit') {
     let flagReady = true;
@@ -50,11 +47,54 @@ function submitControl (inForm: Block): void {
       flagReady = flagReady && readyField;
     }
     if (flagReady) {
-      if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') window.location = this.props.href;
+      if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') {
+        ExecuteApiSubmit(this, GetBodyForm(inForm));
+      }
     }
   } else {
-    if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') window.location = this.props.href;
+    if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') {
+      if (this.props.apiKey) {
+        ExecuteApiSubmit(this, GetBodyForm(inForm));
+      } else {
+        router.go(this.props.href);
+      }
+    }
   }
 }
 
-export {constructDomTree, getCorrectValue, submitControl};
+function GetBodyForm (inForm: Block): TProps {
+  const sendBody: TProps = {};
+  if (inForm.props['fieldsNodes']) {
+    for (const node of inForm.props['fieldsNodes']) {
+      const ne = inForm.props.nodeElements[node.field_name];
+      sendBody[node.field_name] = ne.element.value;
+    }
+  }
+  return sendBody;
+}
+
+function GetCookie (name: string) : string | null {
+  const arg = name + '=';
+  const alen = arg.length;
+  const clen = document.cookie.length;
+  let i = 0;
+  while (i < clen) {
+    const j = i + alen;
+    if (document.cookie.substring(i, j) === arg) { return getCookieVal(j); }
+    i = document.cookie.indexOf(' ', i) + 1;
+    if (i === 0) break;
+  }
+  return null;
+}
+
+function getCookieVal (offset: number) {
+  let Instr = document.cookie.indexOf(';', offset);
+  if (Instr === -1) Instr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, Instr));
+}
+
+function SetCookie (name: string, value: string): void {
+  document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+}
+
+export {getCorrectValue, submitControl, GetCookie, SetCookie};

@@ -1,0 +1,15 @@
+.users_panel {
+  @extend %flex-container;
+
+  max-width: 310px;
+  justify-content: center;
+  grid-area: users;
+  align-content: flex-start;
+}
+
+.users_panel__title_text {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
