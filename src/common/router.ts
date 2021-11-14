@@ -76,7 +76,7 @@ export default class Router {
     }
 
     ping (): void {
-      if (this.socket.OPEN === 1) {
+      if (this.socket.readyState === 1) {
         this.socket.send(JSON.stringify({
           type: 'ping'
         }));
