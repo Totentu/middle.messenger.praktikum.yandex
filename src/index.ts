@@ -66,6 +66,5 @@ let page: string;
 currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
 window.router.go(page);
 
-const router = window.router;
-
-export {router};
+// const router = window.router;
+// export {router};
