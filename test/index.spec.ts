@@ -9,7 +9,7 @@ import { router } from '../src';
 
 describe('Проверка работы роутера', () => {
   it('Тест на два перехода', () => {
-    const CurrentHistoryLength = router.history.length
+    const CurrentHistoryLength = router.history.length;
     router.go('/login');
     router.go('/registry');
 
@@ -21,4 +21,3 @@ describe('Проверка работы роутера', () => {
     expect(router?._currentRoute?._pathname).to.eq('/err404');
   });
 });
-
