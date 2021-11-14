@@ -21,8 +21,6 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type TBlockClass = any;
     type TProps = Record<string, TPropertyValue>;
-    // eslint-disable-next-line no-var
-    var router: Router;
 }
 
 export const router = new Router();
