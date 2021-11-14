@@ -1,11 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import {} from './global';
 import { expect } from 'chai';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-
-import { router } from '../src';
+import { router } from './index';
 
 describe('Проверка работы роутера', () => {
   it('Тест на два перехода', () => {
