@@ -2,21 +2,11 @@
 // @ts-ignore
 import {} from './global';
 import { expect } from 'chai';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { router } from '../src';
 
-describe('Проверка работы роутера', () => {
-  it('Тест на два перехода', () => {
-    router.go('/login');
-    router.go('/registry');
+import { hello } from '../src/index';
 
-    expect(router.history.length).to.eq(3);
-  });
-
-  it('Тест на переход в пустоту', () => {
-    router.go('/asdfrtfgsfg');
-
-    expect(router?._currentRoute?._pathname).to.eq('/err404');
+describe('Typescript + Babel usage suite', () => {
+  it('should return string correctly', () => {
+    expect(hello('mocha'), 'Hello mocha');
   });
 });
