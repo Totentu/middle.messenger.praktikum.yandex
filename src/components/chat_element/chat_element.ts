@@ -43,7 +43,7 @@ export default class ChatElement extends Block {
       router.go('/delete_chat', JSON.stringify({chatId: router.selectedChat, title: `${this.props['title']}`}));
     } else {
       SetCookie('selectedChat', '' + router.selectedChat);
-      router.eventBus.emit('UpdateUsers', router.selectedChat);
+      router.eventBus.emit('ChatSelected', router.selectedChat);
     }
   }
 }

@@ -20,7 +20,7 @@ export default class UsersPanel extends Block {
     this.props.hrefsNodes.push({href_node: '<node id="btn_add_user"></node>'});
     this._render();
 
-    router.eventBus.on('UpdateUsers', this.update.bind(this));
+    router.eventBus.on('ChatSelected', this.update.bind(this));
   }
 
   initUsers (): void {

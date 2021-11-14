@@ -27,7 +27,7 @@ export default class Router {
       this._currentRoute = null;
       this.lastChat = GetCookie('selectedChat');
       if (this.lastChat) this.selectedChat = parseInt(this.lastChat);
-      this.eventBus.on('UpdateUsers', this.connect.bind(this));
+      this.eventBus.on('ChatSelected', this.connect.bind(this));
 
       Router.__instance = this;
     }

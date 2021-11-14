@@ -21,7 +21,7 @@ export default class ChatsPanel extends Block {
     this.initChats();
     this._render();
 
-    router.eventBus.on('UpdateUsers', this.update.bind(this));
+    router.eventBus.on('ChatSelected', this.update.bind(this));
   }
 
   initChats (): void {
