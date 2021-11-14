@@ -16,8 +16,7 @@ describe('Проверка работы роутера', () => {
   });
 
   it('Тест на переход в пустоту', () => {
-    router.go('/asdfrtfgsfg');
-
+    router.go('/asdfrtrerge');
     expect(router?._currentRoute?._pathname).to.eq('/err404');
   });
 });
