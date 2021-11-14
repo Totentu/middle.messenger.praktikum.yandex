@@ -13,6 +13,7 @@ export default class Router {
     selectedChat = 0;
     currentUser = 0;
     currentToken = '';
+    pingInterval: NodeJS.Timeout;
     socket : WebSocket ;
     _currentRoute: Route | null | undefined;
 
@@ -33,6 +34,7 @@ export default class Router {
 
     connect (): void {
       if (this.selectedChat > 0 && this.currentUser) {
+        this.socket?.close();
         const HTTP = new HTTPTransport();
         const host = 'https://ya-praktikum.tech';
         HTTP.post(`${host}/api/v2/chats/token/${this.selectedChat}`, {})
@@ -50,6 +52,7 @@ export default class Router {
                     content: '0',
                     type: 'get old'
                   }));
+                  if (!this.pingInterval) this.pingInterval = setInterval(this.ping.bind(this), 1000);
                 });
 
                 this.socket.addEventListener('close', event => {
@@ -62,11 +65,21 @@ export default class Router {
                 });
 
                 this.socket.addEventListener('message', event => {
-                  this.eventBus.emit('UpdateMessages', JSON.parse(event.data));
+                  if (JSON.parse(event.data).type !== 'pong') {
+                    this.eventBus.emit('UpdateMessages', JSON.parse(event.data));
+                  }
                 });
               }
             }
           );
+      }
+    }
+
+    ping (): void {
+      if (this.socket.OPEN === 1) {
+        this.socket.send(JSON.stringify({
+          type: 'ping'
+        }));
       }
     }
 
