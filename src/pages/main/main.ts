@@ -6,6 +6,7 @@ import {WritePanel} from '../../panels/write_panel/index';
 import Block from '../../common/block';
 import {template as pageMainTemplate} from './main.tmpl';
 import HTTPTransport from '../../common/httptransport';
+import {router} from '../../index';
 
 export default class PageMain extends Block {
   constructor () {
