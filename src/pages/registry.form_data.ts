@@ -1,6 +1,6 @@
 import {VALIDATE_FORM} from '../common/constants';
 
-export const RegistryDataTmp = {
+export const RegistryFormData = {
   fields: [
     {field_title: 'Почта', field_name: 'email', field_value: '', errMes: VALIDATE_FORM.email.errMes, regControl: VALIDATE_FORM.email.regControl},
     {field_title: 'Логин', field_name: 'login', field_value: '', errMes: VALIDATE_FORM.login.errMes, regControl: VALIDATE_FORM.login.regControl},

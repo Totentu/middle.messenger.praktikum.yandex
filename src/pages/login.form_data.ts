@@ -1,6 +1,6 @@
 import {VALIDATE_FORM} from '../common/constants';
 
-export const LoginDataTmp = {
+export const LoginFormData = {
   fields: [
     {field_title: 'Логин', field_name: 'login', field_value: '', errMes: VALIDATE_FORM.login.errMes, regControl: VALIDATE_FORM.login.regControl},
     {field_title: 'Пароль', field_name: 'password', field_value: '', errMes: VALIDATE_FORM.password.errMes, regControl: VALIDATE_FORM.password.regControl}

@@ -9,10 +9,11 @@ import {PageProfilePassChange} from './pages/profile_pass_change/index';
 import {PageForm} from './components/form/index';
 import {PageErr404} from './pages/err404/index';
 
-import {RegistryDataTmp} from './pages/registry.form_data';
-import {LoginDataTmp} from './pages/login.form_data';
-import {AddChatTmp} from './pages/add_chat.form_data';
-import {DelChatTmp} from './pages/delete_chat.form_data';
+import {RegistryFormData} from './pages/registry.form_data';
+import {LoginFormData} from './pages/login.form_data';
+import {AddChatFormData} from './pages/add_chat.form_data';
+import {DelChatFormData} from './pages/delete_chat.form_data';
+import {DelUserFormData} from './pages/delete_user.form_data';
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,16 +28,17 @@ declare global {
 window.router = new Router();
 
 window.router
-  .use('/', PageForm, LoginDataTmp)
-  .use('/login', PageForm, LoginDataTmp)
+  .use('/', PageForm, LoginFormData)
+  .use('/login', PageForm, LoginFormData)
   .use('/main', PageMain, {})
   .use('/profile', PageProfileData, {})
   .use('/profile_change', PageProfileDataChange, {})
   .use('/password_change', PageProfilePassChange, {})
   .use('/chat_user_add', ChatUserAdd, {})
-  .use('/registry', PageForm, RegistryDataTmp)
-  .use('/add_chat', PageForm, AddChatTmp)
-  .use('/delete_chat', PageForm, DelChatTmp)
+  .use('/registry', PageForm, RegistryFormData)
+  .use('/add_chat', PageForm, AddChatFormData)
+  .use('/delete_chat', PageForm, DelChatFormData)
+  .use('/delete_user', PageForm, DelUserFormData)
   .use('/err404', PageErr404, {})
   .start();
 

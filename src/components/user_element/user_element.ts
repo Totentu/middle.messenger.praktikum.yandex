@@ -35,7 +35,7 @@ export default class UserElement extends Block {
     const ClickClass = e?.target?.className;
 
     if (ClickClass === 'user_element__delete') {
-      window.router.go('/delete_user', JSON.stringify({chatId: `${this.props['tempID'].substr(5)}`, title: `${this.props['title']}`}));
+      window.router.go('/delete_user', JSON.stringify({chatId: `${window.router.selectedChat}`, users: `${this.props['tempID'].substr(5)}`, display_name: `${this.props['nick']}`}));
     }
   }
 }

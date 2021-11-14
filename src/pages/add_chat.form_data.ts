@@ -1,6 +1,6 @@
 import {VALIDATE_FORM} from '../common/constants';
 
-export const AddChatTmp = {
+export const AddChatFormData = {
   fields: [
     {field_title: 'Название новой беседы', field_name: 'title', field_value: 'Новая беседа', errMes: VALIDATE_FORM.chat_name.errMes, regControl: VALIDATE_FORM.chat_name.regControl}
   ],

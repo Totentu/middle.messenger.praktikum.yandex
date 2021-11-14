@@ -1,14 +1,11 @@
-import {TitleData} from './testdata';
 import {ChatsPanel} from '../../panels/chats_panel/index';
 import {UsersPanel} from '../../panels/users_panel/index';
 import {NavPanel} from '../../panels/nav_panel/index';
 import {MesPanel} from '../../panels/mes_panel/index';
-import {TitlePanel} from '../../panels/title_panel/index';
 import {WritePanel} from '../../panels/write_panel/index';
 import Block from '../../common/block';
 import {template as pageMainTemplate} from './main.tmpl';
 import HTTPTransport from '../../common/httptransport';
-// import {router} from '../../index';
 
 export default class PageMain extends Block {
   constructor () {
@@ -18,7 +15,6 @@ export default class PageMain extends Block {
     this.props.nodeElements.MesPanel = new MesPanel({messages: []});
     this.props.nodeElements.ChatsPanel = new ChatsPanel({chats: [], searchValue: '' });
     this.props.nodeElements.UsersPanel = new UsersPanel({users: []});
-    this.props.nodeElements.TitlePanel = new TitlePanel(TitleData);
     this.props.nodeElements.WritePanel = new WritePanel({writeValue: ''});
     this.props.nodeElements.NavPanel = new NavPanel({
       hrefs: [

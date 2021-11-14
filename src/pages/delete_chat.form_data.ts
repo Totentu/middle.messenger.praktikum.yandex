@@ -1,5 +1,4 @@
-
-export const DelChatTmp = {
+export const DelChatFormData = {
   fields: [
     {field_title: 'ID', field_name: 'chatId', field_value: '0'},
     {field_title: 'Название беседы', field_name: 'title', field_value: ''}

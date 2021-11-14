@@ -1,7 +1,7 @@
 .main {
   display: grid;
   grid-template-areas:
-    "nav   title title"
+    "nav   users mes"
     "chats users mes "
     "chats users write";
   grid-template-rows: 50px calc(100vh - 200px) 100px;

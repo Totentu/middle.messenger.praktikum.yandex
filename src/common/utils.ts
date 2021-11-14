@@ -70,6 +70,10 @@ function GetBodyForm (inForm: Block): TProps {
       sendBody[node.field_name] = ne.element.value;
     }
   }
+  if (sendBody.users) {
+    sendBody.users = [sendBody.users];
+  }
+  console.log(sendBody);
   return sendBody;
 }
 
