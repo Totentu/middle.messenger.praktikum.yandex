@@ -1,5 +1,5 @@
 import Block from 'block';
-// import {router} from '../index';
+import {router} from '../index';
 import HTTPTransport from './httptransport';
 
 function getCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
@@ -27,10 +27,10 @@ function ExecuteApiSubmit (InBut: Block, InData: TProps) : void {
     .then(
       (data: XMLHttpRequest) => {
         if (data.status === 200) {
-          window.router.go(InBut.props.href);
+          router.go(InBut.props.href);
         } else {
           if (data.responseText === '{"reason":"User already in system"}') {
-            window.router.go(InBut.props.href);
+            router.go(InBut.props.href);
           } else {
             alert(`${data.status}: ${data.responseText}`);
           }
@@ -56,7 +56,7 @@ function submitControl (inForm: Block): void {
       if (this.props.apiKey) {
         ExecuteApiSubmit(this, GetBodyForm(inForm));
       } else {
-        window.router.go(this.props.href);
+        router.go(this.props.href);
       }
     }
   }

@@ -5,7 +5,7 @@ import Input from '../../components/input/index';
 import InputControl from '../../components/input_control/index';
 import BtnImg from '../../components/but_img/index';
 import {VALIDATE_FORM} from '../../common/constants';
-// import {router} from '../../index';
+import {router} from '../../index';
 
 interface IWritePanel {
   writeValue: string;
@@ -51,7 +51,7 @@ export default class WritePanel extends Block {
 
   sendmessage (): void {
     const mes = <HTMLInputElement>document.getElementById('writeInput');
-    window.router.socket.send(JSON.stringify({
+    router.socket.send(JSON.stringify({
       content: mes.value,
       type: 'message'
     }));

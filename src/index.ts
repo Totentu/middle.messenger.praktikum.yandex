@@ -25,9 +25,9 @@ declare global {
     var router: Router;
 }
 
-window.router = new Router();
+export const router = new Router();
 
-window.router
+router
   .use('/', PageForm, LoginFormData)
   .use('/login', PageForm, LoginFormData)
   .use('/main', PageMain, {})
@@ -49,11 +49,11 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
   .then(
     (data: XMLHttpRequest) => {
       if (data.status === 401) {
-        window.router.go('/login');
+        router.go('/login');
       } else {
-        window.router.currentUser = JSON.parse(data.responseText).id;
-        if (window.router._currentRoute?._pathname === '/login') {
-          window.router.go('/main');
+        router.currentUser = JSON.parse(data.responseText).id;
+        if (router._currentRoute?._pathname === '/login') {
+          router.go('/main');
         }
       }
     }
@@ -64,8 +64,4 @@ const currentTemplate = searchString.get('template');
 let page: string;
 
 currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
-window.router.go(page);
-
-export function hello (inStr: string): string {
-  return 'Hello ' + inStr;
-}
+router.go(page);

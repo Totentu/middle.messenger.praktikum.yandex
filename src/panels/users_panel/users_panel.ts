@@ -2,7 +2,7 @@ import BtnImg from '../../components/but_img/index';
 import UserElement from '../../components/user_element/index';
 import Block from '../../common/block';
 import {template as UsersPanelTemplate} from './users_panel.tmpl';
-// import {router} from '../../index';
+import {router} from '../../index';
 import HTTPTransport from '../../common/httptransport';
 
 interface IUsersPanel {
@@ -20,7 +20,7 @@ export default class UsersPanel extends Block {
     this.props.hrefsNodes.push({href_node: '<node id="btn_add_user"></node>'});
     this._render();
 
-    window.router.eventBus.on('UpdateUsers', this.update.bind(this));
+    router.eventBus.on('UpdateUsers', this.update.bind(this));
   }
 
   initUsers (): void {

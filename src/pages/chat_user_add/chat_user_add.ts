@@ -1,5 +1,5 @@
 import {PageForm} from '../../components/form/index';
-// import {router} from '../../index';
+import {router} from '../../index';
 import HTTPTransport from '../../common/httptransport';
 import {template as pageChatUserAddTemplate} from './chat_user_add.tmpl';
 import Button from '../../components/button/index';
@@ -51,13 +51,13 @@ export default class ChatUserAdd extends PageForm {
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
             console.log('Пользователь не идентифицирован');
-            window.router.go('/login');
+            router.go('/login');
           } else {
             const uData = JSON.parse(data.response)[0];
             this.props.UserID = uData.id;
             this.props.fields = [
               {field_title: 'ID участника', field_name: 'users', field_value: uData.id},
-              {field_title: 'ID чата', field_name: 'chatId', field_value: window.router.selectedChat},
+              {field_title: 'ID чата', field_name: 'chatId', field_value: router.selectedChat},
               {field_title: 'Имя', field_name: 'first_name', field_value: uData.first_name},
               {field_title: 'Фамилия', field_name: 'second_name', field_value: uData.second_name},
               {field_title: 'Ник', field_name: 'display_name', field_value: uData.display_name},
@@ -73,7 +73,7 @@ export default class ChatUserAdd extends PageForm {
   }
 
   addUser (): void {
-    const SendData = {users: <number[]>[this.props.UserID], chatId: window.router.selectedChat };
+    const SendData = {users: <number[]>[this.props.UserID], chatId: router.selectedChat };
     const HTTP = new HTTPTransport();
     const host = 'https://ya-praktikum.tech';
     HTTP.put(`${host}/api/v2/chats/users`, { data: SendData})
@@ -81,11 +81,11 @@ export default class ChatUserAdd extends PageForm {
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
             console.log('Пользователь не идентифицирован');
-            window.router.go('/login');
+            router.go('/login');
           } else if (data.status === 400) {
             // console.log(data.response);
           } else {
-            window.router.go('/main');
+            router.go('/main');
           }
         }
       );

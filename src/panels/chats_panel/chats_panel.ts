@@ -3,7 +3,7 @@ import Input from '../../components/input/index';
 import BtnImg from '../../components/but_img/index';
 import Block from '../../common/block';
 import {template as ChatsPanelTemplate} from './chats_panel.tmpl';
-// import {router} from '../../index';
+import {router} from '../../index';
 
 interface IChatsPanel {
   chats: Record<string, string>[];
@@ -21,7 +21,7 @@ export default class ChatsPanel extends Block {
     this.initChats();
     this._render();
 
-    window.router.eventBus.on('UpdateUsers', this.update.bind(this));
+    router.eventBus.on('UpdateUsers', this.update.bind(this));
   }
 
   initChats (): void {

@@ -1,6 +1,6 @@
 import Block from '../../common/block';
 import {template as ChatElementTemplate} from './chat_element.tmpl';
-// import {router} from '../../index';
+import {router} from '../../index';
 import {SetCookie} from '../../common/utils';
 
 interface IChatElement {
@@ -15,7 +15,7 @@ interface IChatElement {
 export default class ChatElement extends Block {
   constructor (props: IChatElement) {
     super('div', props, ChatElementTemplate);
-    props.tempID === 'chat_' + window.router.selectedChat ? this.element.className = 'chat_element_selected' : this.element.className = 'chat_element';
+    props.tempID === 'chat_' + router.selectedChat ? this.element.className = 'chat_element_selected' : this.element.className = 'chat_element';
     this.setProps({
       events: {
         click: (event: TPropertyValue) => { this.onclick(event); }
@@ -37,13 +37,13 @@ export default class ChatElement extends Block {
 
   onclick (e: TPropertyValue): void {
     const ClickClass = e?.target?.className;
-    window.router.selectedChat = parseInt(`${this.props['tempID'].substr(5)}`);
+    router.selectedChat = parseInt(`${this.props['tempID'].substr(5)}`);
 
     if (ClickClass === 'chat_element__delete') {
-      window.router.go('/delete_chat', JSON.stringify({chatId: window.router.selectedChat, title: `${this.props['title']}`}));
+      router.go('/delete_chat', JSON.stringify({chatId: router.selectedChat, title: `${this.props['title']}`}));
     } else {
-      SetCookie('selectedChat', '' + window.router.selectedChat);
-      window.router.eventBus.emit('UpdateUsers', window.router.selectedChat);
+      SetCookie('selectedChat', '' + router.selectedChat);
+      router.eventBus.emit('UpdateUsers', router.selectedChat);
     }
   }
 }

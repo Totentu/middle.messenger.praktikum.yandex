@@ -1,5 +1,5 @@
 import {PageForm} from '../../components/form/index';
-// import {router} from '../../index';
+import {router} from '../../index';
 import HTTPTransport from '../../common/httptransport';
 import {VALIDATE_FORM} from '../../common/constants';
 
@@ -34,7 +34,7 @@ export default class ProfileDataChange extends PageForm {
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
             console.log('Пользователь не идентифицирован');
-            window.router.go('/login');
+            router.go('/login');
           } else {
             const uData = JSON.parse(data.response);
             this.props.fields = [

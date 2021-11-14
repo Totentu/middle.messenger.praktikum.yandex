@@ -1,6 +1,6 @@
 import Block from '../../common/block';
 import {template as UserElementTemplate} from './user_element.tmpl';
-// import {router} from '../../index';
+import {router} from '../../index';
 
 interface IUserElement {
   nick: string;
@@ -35,7 +35,7 @@ export default class UserElement extends Block {
     const ClickClass = e?.target?.className;
 
     if (ClickClass === 'user_element__delete') {
-      window.router.go('/delete_user', JSON.stringify({chatId: `${window.router.selectedChat}`, users: `${this.props['tempID'].substr(5)}`, display_name: `${this.props['nick']}`}));
+      router.go('/delete_user', JSON.stringify({chatId: `${router.selectedChat}`, users: `${this.props['tempID'].substr(5)}`, display_name: `${this.props['nick']}`}));
     }
   }
 }

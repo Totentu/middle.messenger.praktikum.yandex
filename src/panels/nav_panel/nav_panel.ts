@@ -2,7 +2,7 @@ import BtnImg from '../../components/but_img/index';
 import Block from '../../common/block';
 import {template as NavPanelTemplate} from './nav_panel.tmpl';
 import HTTPTransport from '../../common/httptransport';
-// import {router} from '../../index';
+import {router} from '../../index';
 
 interface INavPanel {
   hrefs: Record<string, string>[];
@@ -35,7 +35,7 @@ export default class NavPanel extends Block {
       .then(
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
-            window.router.go('/login');
+            router.go('/login');
           } else {
             this.props.user = JSON.parse(data.response).login;
             this._render();

@@ -4,7 +4,7 @@ import InputControl from '../input_control/index';
 import Block from '../../common/block';
 import {getCorrectValue, submitControl} from '../../common/utils';
 import {template as pageFormTemplate} from './form.tmpl';
-// import {router} from '../../index';
+import {router} from '../../index';
 
 interface IPageForm {
   title: string;
@@ -44,8 +44,8 @@ export default class PageForm extends Block {
   initFields (): void {
     // Считываем значения переданные в форму (если они есть)
     let params: TPropertyValue;
-    if (typeof (window.router._currentRoute?._params) === 'string' && window.router._currentRoute?._params !== '') {
-      params = JSON.parse(<string>window.router._currentRoute?._params);
+    if (typeof (router._currentRoute?._params) === 'string' && router._currentRoute?._params !== '') {
+      params = JSON.parse(<string>router._currentRoute?._params);
     }
     const ne = this.props.nodeElements;
     this.props.fieldsNodes = [];

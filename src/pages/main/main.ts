@@ -35,8 +35,8 @@ export default class PageMain extends Block {
           this.props.nodeElements.ChatsPanel.props.chats = JSON.parse(data.responseText);
           this.props.nodeElements.ChatsPanel.initChats();
           this.props.nodeElements.ChatsPanel._render();
-          if (window.router.selectedChat > 0) {
-            window.router.eventBus.emit('UpdateUsers', router.selectedChat);
+          if (router.selectedChat > 0) {
+            router.eventBus.emit('UpdateUsers', router.selectedChat);
           }
         }
       );
