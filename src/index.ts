@@ -71,4 +71,4 @@ function hello (inStr: string): string {
 }
 
 const router = window.router;
-export {hello};
+export {router, hello};
