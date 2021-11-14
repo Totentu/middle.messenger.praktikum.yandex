@@ -70,5 +70,4 @@ function hello (inStr: string): string {
   return 'Hello ' + inStr;
 }
 
-const router = window.router;
-export {router, hello};
+export {hello};
