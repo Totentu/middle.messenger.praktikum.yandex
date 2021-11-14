@@ -66,8 +66,6 @@ let page: string;
 currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
 window.router.go(page);
 
-function hello (rhs: string): string {
-  return 'Hellow ' + rhs;
-}
+const router = window.router;
 
-export {hello};
+export {router};
