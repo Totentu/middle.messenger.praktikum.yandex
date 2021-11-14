@@ -32,7 +32,6 @@ export default class Router {
     }
 
     connect (): void {
-      console.log(this.selectedChat, this.currentUser, this.currentToken);
       if (this.selectedChat > 0 && this.currentUser) {
         const HTTP = new HTTPTransport();
         const host = 'https://ya-praktikum.tech';

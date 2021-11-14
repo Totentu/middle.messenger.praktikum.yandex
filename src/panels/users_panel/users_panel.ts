@@ -44,16 +44,5 @@ export default class UsersPanel extends Block {
           this._render();
         }
       );
-
-    HTTP.post(`${host}/api/v2/chats/token/${window.router.selectedChat}`, {})
-      .then(
-        (data: XMLHttpRequest) => {
-          if (data.status === 401) {
-            window.router.go('/login');
-          } else {
-            window.router.currentToken = JSON.parse(data.responseText).token;
-          }
-        }
-      );
   }
 }
