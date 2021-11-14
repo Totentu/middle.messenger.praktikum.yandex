@@ -12,7 +12,6 @@ export default class Router {
     lastChat: string | null;
     selectedChat = 0;
     currentUser = 0;
-    currentToken = '';
     pingInterval: NodeJS.Timeout;
     socket : WebSocket ;
     _currentRoute: Route | null | undefined;
@@ -43,8 +42,7 @@ export default class Router {
               if (data.status === 401) {
                 this.go('/login');
               } else {
-                this.currentToken = JSON.parse(data.responseText).token;
-                this.socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${this.currentUser}/${this.selectedChat}/${this.currentToken}`);
+                this.socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${this.currentUser}/${this.selectedChat}/${JSON.parse(data.responseText).token}`);
 
                 this.socket.addEventListener('open', () => {
                   console.log('Соединение установлено');
