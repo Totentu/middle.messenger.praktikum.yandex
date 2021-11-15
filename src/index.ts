@@ -59,7 +59,7 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
 
 const searchString = new URLSearchParams(window.location.search);
 const currentTemplate = searchString.get('template');
-let page: string;
 
-currentTemplate != null ? page = '/' + currentTemplate : page = document.location.pathname;
-router.go(page);
+if (currentTemplate != null) {
+  router.go('/' + currentTemplate);
+}
