@@ -53,6 +53,7 @@ HTTP.get(`${host}/api/v2/auth/user`, {})
         if (router._currentRoute?._pathname === '/login') {
           router.go('/main');
         }
+
         const searchString = new URLSearchParams(window.location.search);
         const currentTemplate = searchString.get('template');
         if (currentTemplate != null) {
