@@ -11,6 +11,12 @@
   width: 200px;
 }
 
+.form__input_avatar {
+  @extend %input_view;
+
+  display: none;
+}
+
 .chats_panel__input {
   @extend %input_view;
 

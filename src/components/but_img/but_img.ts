@@ -1,27 +1,29 @@
 import Block from '../../common/block';
-import {constructDomTree} from '../../common/utils';
+import {SubmitControl} from '../../common/utils';
 import {template as butImgTemplate} from './but_img.tmpl';
 
 interface IButImg {
   href: string;
   src: string;
   type?: string;
+  apiKey?: string
+  apiMethod?: string
 }
 
 export default class ButImg extends Block {
   constructor (props: IButImg) {
-    super('div', props);
+    super('div', props, butImgTemplate);
     if (props.type !== 'submit' && typeof (props.href) !== 'undefined') {
       this.setProps({
         events: {
-          click: () => { if (typeof (props.href) !== 'undefined' && props.href !== '') window.location.href = props.href; }
+          click: () => { SubmitControl.bind(this)(this); }
         }
       });
     }
   }
 
   render (): HTMLElement {
-    const nodeStructure = constructDomTree(butImgTemplate, this.props);
+    const nodeStructure = this.constructDomTree();
 
     const photoNode = nodeStructure.querySelector('div.form__but_img');
     if (photoNode !== null) {

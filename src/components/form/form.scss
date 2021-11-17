@@ -32,3 +32,17 @@
   align-items: baseline;
   justify-content: space-around;
 }
+
+.form__label_for_file {
+  border-radius: 10px;
+  width: 220px;
+  background-color: $form_bgcolor;
+  box-shadow: 0 0 10px $whole_shadow_color;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 2px;
+
+  &:hover {
+    background-color: $form_bgcolor_hover;
+  }
+}

@@ -5,11 +5,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
   },
   "files" :  [
     "./src/index.ts"
   ],
+  "include": ["src/**/*", "src/index.spec.ts"],
   "exclude": [
     "node_modules"
   ],

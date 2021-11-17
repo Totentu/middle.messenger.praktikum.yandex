@@ -5,33 +5,21 @@
 @import "../src/components/input/input";
 @import "../src/components/input_control/input_control";
 @import "../src/components/chat_element/chat_element";
+@import "../src/components/user_element/user_element";
 @import "../src/components/mes_element/mes_element";
 // Панели
 @import "../src/panels/chats_panel/chats_panel";
 @import "../src/panels/nav_panel/nav_panel";
 @import "../src/panels/mes_panel/mes_panel";
-@import "../src/panels/title_panel/title_panel";
 @import "../src/panels/write_panel/write_panel";
+@import "../src/panels/users_panel/users_panel";
 //Страницы
-@import "../src/pages/form/form";
+@import "../src/components/form/form";
 @import "../src/pages/main/main";
+@import "../src/pages/err404/err404";
 
 .mainframe {
   background-image: url("../img/fon_main.png");
   background-repeat: repeat;
   text-align: center;
-}
-
-.proxy_test {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  height: 210px;
-  overflow: auto;
-  z-index: 1000;
-  white-space: pre-line;
-  text-align: left;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
 }

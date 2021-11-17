@@ -2,9 +2,9 @@
   padding: 10px;
   text-align: center;
   width: 100%;
-  color: #f00;
+  color: $input_control_color;
   font-size: 14px;
   border: 0;
-  background: rgba(0, 0, 0, 0);
+  background: $input_control_back;
   font-family: $whole_font_family;
 }

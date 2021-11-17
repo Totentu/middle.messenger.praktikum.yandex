@@ -1,6 +1,7 @@
 import Block from '../../common/block';
-import {constructDomTree} from '../../common/utils';
 import {template as ChatElementTemplate} from './chat_element.tmpl';
+import {router} from '../../index';
+import {SetCookie} from '../../common/utils';
 
 interface IChatElement {
   title: string;
@@ -13,17 +14,41 @@ interface IChatElement {
 
 export default class ChatElement extends Block {
   constructor (props: IChatElement) {
-    super('div', props);
-    this.element.className = 'chat_element';
+    super('div', props, ChatElementTemplate);
+    // Если данный чат является выбранным, то даем ему особый класс
+    if (props.tempID === 'chat_' + router.selectedChat) {
+      this.element.className = 'chat_element_selected';
+    } else {
+      this.element.className = 'chat_element';
+    }
+    this.setProps({
+      events: {
+        click: (event: TPropertyValue) => { this.onclick(event); }
+      }
+    });
   }
 
   render (): HTMLElement {
-    const nodeStructure = constructDomTree(ChatElementTemplate, this.props);
+    const nodeStructure = this.constructDomTree();
 
     const photoNode = nodeStructure.querySelector('div.chat_element__photo');
     if (photoNode !== null) {
-      photoNode.setAttribute('style', `background-image: url(img/${this.props['photo']})`);
+      if (this.props['photo']) {
+        photoNode.setAttribute('style', `background-image: url(https://ya-praktikum.tech/api/v2/resources/${this.props['photo']})`);
+      }
     }
     return nodeStructure.body;
+  }
+
+  onclick (e: TPropertyValue): void {
+    const ClickClass = e?.target?.className;
+    router.selectedChat = parseInt(`${this.props['tempID'].substr(5)}`);
+
+    if (ClickClass === 'chat_element__delete') {
+      router.go('/delete_chat', JSON.stringify({chatId: router.selectedChat, title: `${this.props['title']}`}));
+    } else {
+      SetCookie('selectedChat', '' + router.selectedChat);
+      router.eventBus.emit('ChatSelected', router.selectedChat);
+    }
   }
 }

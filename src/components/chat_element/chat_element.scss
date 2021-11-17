@@ -6,8 +6,30 @@
   cursor: pointer;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: $element_back_hover;
   }
+}
+
+.chat_element_selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background: $chat_selected_back;
+
+  &:hover {
+    background: $chat_selected_back_hover;
+  }
+}
+
+.chat_element__delete {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+  padding: 0;
 }
 
 .chat_element__photo {
@@ -31,7 +53,7 @@
   border-radius: 100%;
   box-sizing: border-box;
   background-size: cover;
-  background-color: #99bcd6;
+  background-color: $chat_bgcolor;
   font-weight: bold;
   font-size: 12px;
   padding-top: 4px;

@@ -1,0 +1,39 @@
+.user_element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: $element_back_hover;
+  }
+}
+
+.user_element__delete {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.user_element__photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+.user_element__data {
+  @extend %flex-container;
+
+  justify-content: space-between;
+  width: 250px;
+}
+
+.user_element__nick {
+  font-weight: bold;
+}
