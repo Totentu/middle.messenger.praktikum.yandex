@@ -16,7 +16,7 @@ export default class ChatsPanel extends Block {
     this.element.className = 'chats_panel';
     this.props.searchValue = props.searchValue;
     this.props.nodeElements = {};
-    this.props.nodeElements.searchInput = new Input({ className: 'chats_panel__input', id: 'searchInput', value: props.searchValue, disabled: false });
+    this.props.nodeElements.searchInput = new Input({className: 'chats_panel__input', id: 'searchInput', value: props.searchValue, disabled: false});
     this.props.nodeElements.searchBtnImg = new BtnImg({href: '', src: 'search.png'});
     this.initChats();
     this._render();

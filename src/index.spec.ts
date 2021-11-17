@@ -1,6 +1,6 @@
 import {} from './global';
-import { expect } from 'chai';
-import { router } from './index';
+import {expect} from 'chai';
+import {router} from './index';
 
 describe('Проверка работы роутера', () => {
   it('Тест на два перехода', () => {

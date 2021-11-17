@@ -1,5 +1,23 @@
-$whole_font_family:    courier new, sans-serif;
-$whole_font_size:      18px;
+$whole_font_family:         courier new, sans-serif;
+$whole_font_size:           18px;
+$whole_shadow_color:        rgba(0, 0, 0, 0.5);
+$element_back_hover:        rgba(255, 255, 255, 0.5);
+
+$button_bgcolor:            #c4c4c4;
+$button_bgcolor_hover:      #b4b4b4;
+
+$chat_bgcolor:              #99bcd6;
+$chat_selected_back:        rgba(200, 200, 200, 0.8);
+$chat_selected_back_hover:  rgba(200, 200, 255, 0.5);
+
+$form_bgcolor:              #e4e4e4;
+$form_bgcolor_hover:        #d4d4d4;
+
+$mes_others_bgcolor:        #fff;
+$mes_yours_bgcolor:         #baccef;
+
+$input_control_color:       #f00;
+$input_control_back:        rgba(0, 0, 0, 0);
 
 %flex-container {
   display: flex;
@@ -30,4 +48,8 @@ $whole_font_size:      18px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 30px;
+}
+
+.hidden {
+  display: none !important;
 }

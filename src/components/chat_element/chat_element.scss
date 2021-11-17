@@ -6,7 +6,7 @@
   cursor: pointer;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: $element_back_hover;
   }
 }
 
@@ -16,10 +16,10 @@
   justify-content: space-between;
   width: 100%;
   cursor: pointer;
-  background: rgba(200, 200, 200, 0.8);
+  background: $chat_selected_back;
 
   &:hover {
-    background: rgba(200, 200, 255, 0.5);
+    background: $chat_selected_back_hover;
   }
 }
 
@@ -53,7 +53,7 @@
   border-radius: 100%;
   box-sizing: border-box;
   background-size: cover;
-  background-color: #99bcd6;
+  background-color: $chat_bgcolor;
   font-weight: bold;
   font-size: 12px;
   padding-top: 4px;

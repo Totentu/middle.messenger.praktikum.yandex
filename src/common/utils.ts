@@ -2,7 +2,7 @@ import Block from 'block';
 import {router} from '../index';
 import HTTPTransport from './httptransport';
 
-function getCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
+function GetCorrectValue (inRegExp: RegExp, inErrMes: string): boolean {
   if (typeof (inRegExp) === 'undefined') return true;
   const res = inRegExp.test(this.element.value);
   if (res) {
@@ -39,20 +39,24 @@ function ExecuteApiSubmit (InBut: Block, InData: TProps) : void {
     );
 }
 
-function submitControl (inForm: Block): void {
+function IsHref (value: any): boolean {
+  return (typeof (value) !== 'undefined' && value !== '');
+}
+
+function SubmitControl (inForm: Block): void {
   if (this.props.type === 'submit') {
     let flagReady = true;
     for (const node of inForm.props['fieldsNodes']) {
-      const readyField = getCorrectValue.bind(inForm.props.nodeElements[node.field_name])(node.regControl, node.errMes);
+      const readyField = GetCorrectValue.bind(inForm.props.nodeElements[node.field_name])(node.regControl, node.errMes);
       flagReady = flagReady && readyField;
     }
     if (flagReady) {
-      if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') {
+      if (IsHref(this.props.href)) {
         ExecuteApiSubmit(this, GetBodyForm(inForm));
       }
     }
   } else {
-    if (typeof (this.props.href) !== 'undefined' && this.props.href !== '') {
+    if (IsHref(this.props.href)) {
       if (this.props.apiKey) {
         ExecuteApiSubmit(this, GetBodyForm(inForm));
       } else {
@@ -84,14 +88,14 @@ function GetCookie (name: string) : string | null {
   let i = 0;
   while (i < clen) {
     const j = i + alen;
-    if (document.cookie.substring(i, j) === arg) { return getCookieVal(j); }
+    if (document.cookie.substring(i, j) === arg) { return GetCookieVal(j); }
     i = document.cookie.indexOf(' ', i) + 1;
     if (i === 0) break;
   }
   return null;
 }
 
-function getCookieVal (offset: number) {
+function GetCookieVal (offset: number) {
   let Instr = document.cookie.indexOf(';', offset);
   if (Instr === -1) Instr = document.cookie.length;
   return unescape(document.cookie.substring(offset, Instr));
@@ -101,4 +105,8 @@ function SetCookie (name: string, value: string): void {
   document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
 }
 
-export {getCorrectValue, submitControl, GetCookie, SetCookie};
+function IsObject (value: any): boolean {
+  return (!!value && typeof value === 'object' && value.toString() === '[object Object]');
+}
+
+export {GetCorrectValue, SubmitControl, GetCookie, SetCookie, IsObject};

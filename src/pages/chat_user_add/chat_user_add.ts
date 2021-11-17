@@ -46,7 +46,7 @@ export default class ChatUserAdd extends PageForm {
     const search = <HTMLInputElement>document.getElementById('inpSearch');
     const HTTP = new HTTPTransport();
     const host = 'https://ya-praktikum.tech';
-    HTTP.post(`${host}/api/v2/user/search`, { data: {login: search.value} })
+    HTTP.post(`${host}/api/v2/user/search`, {data: {login: search.value}})
       .then(
         (data: XMLHttpRequest) => {
           if (data.status === 401) {
@@ -73,10 +73,10 @@ export default class ChatUserAdd extends PageForm {
   }
 
   addUser (): void {
-    const SendData = {users: <number[]>[this.props.UserID], chatId: router.selectedChat };
+    const SendData = {users: <number[]>[this.props.UserID], chatId: router.selectedChat};
     const HTTP = new HTTPTransport();
     const host = 'https://ya-praktikum.tech';
-    HTTP.put(`${host}/api/v2/chats/users`, { data: SendData})
+    HTTP.put(`${host}/api/v2/chats/users`, {data: SendData})
       .then(
         (data: XMLHttpRequest) => {
           if (data.status === 401) {

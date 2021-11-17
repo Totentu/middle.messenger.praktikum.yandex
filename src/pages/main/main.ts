@@ -14,7 +14,7 @@ export default class PageMain extends Block {
     this.element.className = 'main';
     this.props.nodeElements = {};
     this.props.nodeElements.MesPanel = new MesPanel({messages: []});
-    this.props.nodeElements.ChatsPanel = new ChatsPanel({chats: [], searchValue: '' });
+    this.props.nodeElements.ChatsPanel = new ChatsPanel({chats: [], searchValue: ''});
     this.props.nodeElements.UsersPanel = new UsersPanel({users: []});
     this.props.nodeElements.WritePanel = new WritePanel({writeValue: ''});
     this.props.nodeElements.NavPanel = new NavPanel({

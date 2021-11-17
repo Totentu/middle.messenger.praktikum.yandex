@@ -1,5 +1,5 @@
 import Block from '../../common/block';
-import {submitControl} from '../../common/utils';
+import {SubmitControl} from '../../common/utils';
 import {template as butImgTemplate} from './but_img.tmpl';
 
 interface IButImg {
@@ -16,7 +16,7 @@ export default class ButImg extends Block {
     if (props.type !== 'submit' && typeof (props.href) !== 'undefined') {
       this.setProps({
         events: {
-          click: () => { submitControl.bind(this)(this); }
+          click: () => { SubmitControl.bind(this)(this); }
         }
       });
     }

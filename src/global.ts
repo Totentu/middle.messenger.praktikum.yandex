@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { JSDOM } from 'jsdom';
+import {JSDOM} from 'jsdom';
 
 const dom = new JSDOM(
     `<!DOCTYPE html>

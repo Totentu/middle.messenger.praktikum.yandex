@@ -2,7 +2,7 @@ import EventBus from './event_bus';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Handlebars from '../../node_modules/handlebars/dist/cjs/handlebars';
-
+import {IsObject} from './utils';
 type TElement = HTMLElement | HTMLInputElement | HTMLButtonElement | HTMLBodyElement | HTMLDivElement;
 
 export default class Block {
@@ -43,7 +43,7 @@ export default class Block {
     }
 
     _createResources (): void {
-      const { tagName } = this._meta;
+      const {tagName} = this._meta;
       this._element = this._createDocumentElement(tagName);
     }
 
@@ -174,11 +174,11 @@ export default class Block {
     }
 
     show (): void {
-      this.element.style.display = 'flex';
+      this.element.classList.remove('hidden');
     }
 
     hide (): void {
-      this.element.style.display = 'none';
+      this.element.classList.add('hidden');
     }
 
     constructDomTree (): Document {
@@ -191,10 +191,10 @@ export default class Block {
       // Специальный механизм, позволяющий в шаблон добавлять "псевдо-теги" node для включения в DOM-дерево живые компоненты
       const nodes = nodeStructure.getElementsByTagName('node');
       for (let i = nodes.length - 1; i >= 0; i--) {
-        if (typeof (this.props[nodes[i].id]) === 'object') {
+        if (IsObject(this.props[nodes[i].id])) {
           nodes[i]?.parentNode?.insertBefore((<Block> this.props[nodes[i].id]).element, nodes[i]);
-        } else if (typeof (this.props?.nodeElements) === 'object') {
-          if (typeof (this.props?.nodeElements[nodes[i].id]) === 'object') {
+        } else if (IsObject(this.props?.nodeElements)) {
+          if (IsObject(this.props?.nodeElements[nodes[i].id])) {
             nodes[i]?.parentNode?.insertBefore((<Block> this.props?.nodeElements[nodes[i].id]).element, nodes[i]);
           }
         }

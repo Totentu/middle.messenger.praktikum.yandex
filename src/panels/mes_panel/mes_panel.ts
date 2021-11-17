@@ -34,8 +34,9 @@ export default class MesPanel extends Block {
     if (typeof (inData.length) === 'undefined') {
       this.props.messages.push(inData);
     } else {
-      inData.sort(this.CompareForSort);
-      this.props.messages = inData;
+      const srData = inData.slice();
+      srData.sort(this.CompareForSort);
+      this.props.messages = srData;
     }
     this.initMessages();
     this._render();

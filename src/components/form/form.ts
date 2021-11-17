@@ -2,7 +2,7 @@ import Button from '../button/index';
 import Input from '../input/index';
 import InputControl from '../input_control/index';
 import Block from '../../common/block';
-import {getCorrectValue, submitControl} from '../../common/utils';
+import {GetCorrectValue, SubmitControl} from '../../common/utils';
 import {template as pageFormTemplate} from './form.tmpl';
 import {router} from '../../index';
 
@@ -32,7 +32,7 @@ export default class PageForm extends Block {
       ne[id] = new Button({class: 'form__button', href: item.button_href, text: item.button_title, type: item.type, apiKey: item.apiKey, apiMethod: item.apiMethod});
       ne[id].setProps({
         events: {
-          click: () => { submitControl.bind(ne[id])(this); }
+          click: () => { SubmitControl.bind(ne[id])(this); }
         }
       });
       this.props.buttonsNodes.push({button_title: item.button_title, button_node: `<node id=${id}></node>`});
@@ -64,8 +64,8 @@ export default class PageForm extends Block {
       ne[id] = new Input({className: 'form__input', id: id, value: <string>item.field_value, disabled: this.props.disabled});
       ne[id].setProps({
         events: {
-          focus: () => { getCorrectValue.bind(ne[id])(item.regControl, item.errMes); },
-          blur: () => { setTimeout(() => getCorrectValue.bind(ne[id])(item.regControl, item.errMes), 200); },
+          focus: () => { GetCorrectValue.bind(ne[id])(item.regControl, item.errMes); },
+          blur: () => { setTimeout(() => GetCorrectValue.bind(ne[id])(item.regControl, item.errMes), 200); },
           change: () => { ne[id].setProps({value: ne[id].element.value}); }
         },
         control: <Input> ne[`${id}_control`]

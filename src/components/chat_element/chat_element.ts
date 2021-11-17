@@ -15,7 +15,12 @@ interface IChatElement {
 export default class ChatElement extends Block {
   constructor (props: IChatElement) {
     super('div', props, ChatElementTemplate);
-    props.tempID === 'chat_' + router.selectedChat ? this.element.className = 'chat_element_selected' : this.element.className = 'chat_element';
+    // Если данный чат является выбранным, то даем ему особый класс
+    if (props.tempID === 'chat_' + router.selectedChat) {
+      this.element.className = 'chat_element_selected';
+    } else {
+      this.element.className = 'chat_element';
+    }
     this.setProps({
       events: {
         click: (event: TPropertyValue) => { this.onclick(event); }

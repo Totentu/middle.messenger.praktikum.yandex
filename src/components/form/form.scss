@@ -36,13 +36,13 @@
 .form__label_for_file {
   border-radius: 10px;
   width: 220px;
-  background-color: #e4e4e4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: $form_bgcolor;
+  box-shadow: 0 0 10px $whole_shadow_color;
   text-align: center;
   cursor: pointer;
   padding-top: 2px;
 
   &:hover {
-    background-color: #d4d4d4;
+    background-color: $form_bgcolor_hover;
   }
 }

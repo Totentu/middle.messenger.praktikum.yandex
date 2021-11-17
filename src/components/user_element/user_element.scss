@@ -6,7 +6,7 @@
   cursor: pointer;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: $element_back_hover;
   }
 }
 
