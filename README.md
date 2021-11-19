@@ -2,7 +2,7 @@
 
 Проект Sprint_3. Третий этап создания прототипа чата. Данный проект является учебным проектом YP.
 
-Ссылка на актуальный pull-request (Spint 4): [https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/17]
+Ссылка на актуальный pull-request (Spint 4): [https://github.com/Totentu/middle.messenger.praktikum.yandex/pull/18]
 
 Демонстрация работы данного прототипа: https://yp-7k-ivan-sprint-2.netlify.app/
 Проект является рабочим в достаточной степени. Его публикация позволяет двум
