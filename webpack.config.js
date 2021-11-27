@@ -11,7 +11,7 @@ module.exports = {
   mode: 'development',
   entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, 'dist/static-html'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'sprint4.js'
   },
   resolve: {
@@ -19,7 +19,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist/static-html')
+      directory: path.join(__dirname, 'dist')
     },
     compress: true,
     port: 3000,
