@@ -37,7 +37,6 @@ export default class WritePanel extends Block {
 
   initButtons (): void {
     const ne = this.props.nodeElements;
-    ne.linkBtnImg = new BtnImg({href: '', src: 'link_file.png'});
     ne.sendBtnImg = new BtnImg({href: '', src: 'send.png', type: 'submit'});
     ne.sendBtnImg.setProps({
       events: {

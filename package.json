@@ -1,12 +1,11 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "sprint_3",
+  "description": "sprint_4",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "start": "parcel index.html --port 3000",
-    "dev": "parcel index.html --port 3000",
-    "build": "parcel build index.html"
+    "test": "mocha",
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "engines": {
     "node": ">=12.0"
@@ -15,6 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/Totentu/middle.messenger.praktikum.yandex.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint:all"
+    }
+  },
   "author": "Ivan",
   "license": "ISC",
   "bugs": {
@@ -22,38 +26,40 @@
   },
   "homepage": "https://github.com/Totentu/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-typescript": "^7.16.0",
-    "@babel/register": "^7.16.0",
-    "@parcel/config-default": "^2.0.1",
-    "@parcel/transformer-image": "^2.0.1",
-    "@parcel/transformer-sass": "^2.0.1",
-    "@types/chai": "^4.2.22",
-    "@types/mocha": "^8.2.3",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "@typescript-eslint/typescript-estree": "^4.33.0",
-    "chai": "^4.3.4",
-    "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-promise": "^5.1.1",
-    "express": "^4.17.1",
-    "jsdom": "^16.7.0",
-    "mocha": "^9.1.3",
-    "nyc": "^15.1.0",
-    "parcel": "^2.0.1",
-    "parcel-reporter-static-files-copy": "^1.3.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "typescript": "^4.5.2"
+    "@babel/preset-env": "7.16.4",
+    "@babel/preset-typescript": "7.16.0",
+    "@babel/register": "7.16.0",
+    "@types/chai": "4.2.22",
+    "@types/mocha": "9.0.0",
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/eslint-plugin-tslint": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
+    "@typescript-eslint/typescript-estree": "5.4.0",
+    "chai": "4.3.4",
+    "copy-webpack-plugin": "10.0.0",
+    "css-loader": "6.5.1",
+    "eslint": "8.3.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-promise": "5.1.1",
+    "express": "4.17.1",
+    "file-loader": "6.2.0",
+    "html-webpack-plugin": "5.5.0",
+    "husky": "7.0.4",
+    "jsdom": "18.1.1",
+    "mini-css-extract-plugin": "2.4.5",
+    "mocha": "9.1.3",
+    "nyc": "15.1.0",
+    "sass": "1.43.5",
+    "sass-loader": "12.3.0",
+    "stylelint": "14.1.0",
+    "stylelint-config-standard": "24.0.0",
+    "ts-loader": "9.2.6",
+    "typescript": "4.5.2",
+    "webpack": "5.64.4",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "4.6.0"
   },
   "dependencies": {
-    "hbs": "^4.2.0"
-  },
-  "staticFiles": {
-    "staticPath": "img",
-    "staticOutPath": "img"
-  },
-  "keywords": []
+    "hbs": "4.2.0"
+  }
 }

@@ -1,3 +1,5 @@
+import '../static/index.scss';
+
 import Router from './common/router';
 import HTTPTransport from './common/httptransport';
 
